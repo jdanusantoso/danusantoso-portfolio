@@ -1,5 +1,8 @@
 package com.revature.dao;
 
+import com.revature.exception.CannotUpdateException;
+import com.revature.exception.TicketDoesNotExistException;
+import com.revature.models.Employee;
 import com.revature.models.Ticket;
 import com.revature.models.TicketType;
 import com.revature.util.JDBCConnectionUTIL;
@@ -57,6 +60,56 @@ public class TicketDaoJDBC implements TicketDao {
 
     @Override
     public List<Ticket> viewAllSubmittedTickets() {
+        List<Ticket> ticket = new ArrayList<>();
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM tickets";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+
+            ResultSet results = prepared.executeQuery();
+
+            while(results.next()) {
+
+                TicketType expenseType;
+
+                switch(results.getInt(8)) {
+                    case 1:
+                        expenseType = TicketType.Food;
+                        break;
+                    case 2:
+                        expenseType = TicketType.Lodging;
+                        break;
+                    case 3:
+                        expenseType = TicketType.Travel;
+                        break;
+                    case 4:
+                        expenseType = TicketType.Professional_Development;
+                        break;
+                    default:
+                        expenseType = TicketType.Other;
+                        break;
+                }
+
+
+
+                ticket.add(new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
+                        results.getString(5), results.getInt(6), results.getString(7), results.getInt(8) ));
+            }
+
+        }
+
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return ticket;
+
+    }
+
+    @Override
+    public List<Ticket> viewAllEmployeeTickets(Employee E) {
         List<Ticket> ticket = new ArrayList<>();
 
         try {
@@ -417,7 +470,7 @@ public class TicketDaoJDBC implements TicketDao {
     }
 
     @Override
-    public boolean updateTicketStatus (String ticket_status, int ticket_id) {
+    public boolean updateTicketStatus (String ticket_status, int ticket_id) throws CannotUpdateException {
         try  {
             Connection connection = conUtil.getConnectionThroughENV();
 

@@ -14,76 +14,100 @@ public class TicketController {
 
     public Handler getTicketHandlerSubmitted = (ctx) -> {
 
+        if(AuthController.ses != null){
 
-        List<Ticket> tickets = tDao.viewAllSubmittedTickets();
+            List<Ticket> tickets = tDao.viewAllSubmittedTickets();
 
-        Gson gson = new Gson();
+            Gson gson = new Gson();
 
-        String JSONTickets = gson.toJson(tickets);
+            String JSONTickets = gson.toJson(tickets);
 
-        ctx.result(JSONTickets);
+            ctx.result(JSONTickets);
 
+            ctx.status(202);
+
+        }else{
+            ctx.result("You must be logged in order to perform this action.");
+            ctx.status(401);
+        }
     };
 
     public Handler createNewTicket = (ctx) -> {
 
-        String body = ctx.body();
+        if(AuthController.ses != null){
+            String body = ctx.body();
 
-        Gson gson = new Gson();
+            Gson gson = new Gson();
 
-        Ticket newT = gson.fromJson(body, Ticket.class);
+            Ticket newT = gson.fromJson(body, Ticket.class);
 
-        if (tDao.createNewTicket(newT) != null) {
-            ctx.status(201);
-            ctx.result(body); //Send back the employee
-        } else {
-            ctx.status(406);
-            ctx.result("Expense ticket reimbursement submission failed.");
+            if (tDao.createNewTicket(newT) != null) {
+                ctx.status(201);
+                ctx.result(body); //Send back the employee
+            } else {
+                ctx.status(406);
+                ctx.result("Expense ticket reimbursement submission failed.");
+            }
+        }else{
+            ctx.result("You must be logged in order to perform this action.");
+            ctx.status(401);
         }
-
     };
 
     public Handler viewAllEmployeeSubmittedTicketsHandler = (ctx) -> {
 
-        List<Ticket> tickets = tDao.viewAllEmployeeSubmittedTickets("Joey Santos");
+        if(AuthController.ses != null){
+            List<Ticket> tickets = tDao.viewAllEmployeeSubmittedTickets("Joey Santos");
 
-        Gson gson = new Gson();
+            Gson gson = new Gson();
 
-        String JSONTickets = gson.toJson(tickets);
+            String JSONTickets = gson.toJson(tickets);
 
-        ctx.result(JSONTickets);
-
-
+            ctx.result(JSONTickets);
+        }else{
+            ctx.result("You must be logged in order to perform this action.");
+            ctx.status(401);
+        }
     };
 
     public Handler updateTicketStatusHandler = (ctx) -> {
 
-        int ticket_id = Integer.parseInt(ctx.pathParam("id"));
+        if(AuthController.ses != null){
 
-        String ticket_status = ctx.body();
+            int ticket_id = Integer.parseInt(ctx.pathParam("id"));
 
-        if (tDao.updateTicketStatus(ticket_status, ticket_id)) {
-            ctx.status(202);
-        } else {
-            ctx.status(406);
+            String ticket_status = ctx.body();
+
+            if (tDao.updateTicketStatus(ticket_status, ticket_id)) {
+                ctx.status(202);
+            } else {
+                ctx.status(406);
+            }
+
+        }else{
+            ctx.result("You must be logged in order to perform this action.");
+            ctx.status(401);
         }
-
-
     };
 
     public Handler viewAllPendingTicketsHandler = (ctx) -> {
 
-        //String ticket_status = "Pending";
+        if(AuthController.ses != null){
 
-        List<Ticket> tickets = tDao.viewAllPendingTickets("Pending");
+            //String ticket_status = "Pending";
 
-        Gson gson = new Gson();
+            List<Ticket> tickets = tDao.viewAllPendingTickets("Pending");
 
-        String JSONTickets = gson.toJson(tickets);
+            Gson gson = new Gson();
 
-        ctx.result(JSONTickets);
+            String JSONTickets = gson.toJson(tickets);
 
+            ctx.result(JSONTickets);
 
+        }else{
+            ctx.result("You must be logged in order to perform this action.");
+            ctx.status(401);
+        }
     };
 
 }

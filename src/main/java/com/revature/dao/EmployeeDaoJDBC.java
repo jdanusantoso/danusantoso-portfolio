@@ -1,19 +1,25 @@
 package com.revature.dao;
 
+import com.revature.exception.EmployeeDoesNotExistException;
+import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.models.Employee;
+import com.revature.models.Ticket;
+import com.revature.models.TicketType;
 import com.revature.util.JDBCConnectionUTIL;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeDaoJDBC implements EmployeeDao {
 
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
     @Override
-    public Employee createNewEmployee(Employee e) {
+    public Employee createNewEmployee(Employee e) throws UsernameAlreadyExistsException {
         try {
 
             Connection connection = conUtil.getConnectionThroughENV();
@@ -49,7 +55,71 @@ public class EmployeeDaoJDBC implements EmployeeDao {
 
     }
 
-        public Employee employeeLoginByEmailPassword(String employee_email, String employee_password) {
+    @Override
+    public List<Employee> getAllEmployees() {
+        List<Employee> employee = new ArrayList<>();
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM employee";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+
+            ResultSet results = prepared.executeQuery();
+
+            while(results.next()) {
+
+                employee.add(new Employee(results.getInt(1), results.getString(2), results.getString(3), results.getString(4),
+                        results.getString(5), results.getString(6), results.getString(7)));
+                }
+
+        }
+
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return employee;
+
+    }
+
+    public Employee employeeLoginByUsername(String employee_username) throws EmployeeDoesNotExistException {
+
+        Employee employee = null;
+
+        try {
+
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM employee WHERE employee_username =? and employee_password = ?";
+            PreparedStatement prepared = connection.prepareStatement(sql);
+            prepared.setString(1, employee_username);
+
+            ResultSet results = prepared.executeQuery();
+
+            while(results.next()) {
+                employee = new Employee();
+
+                employee.setEmployee_id(results.getInt(1));
+                employee.setEmployee_first_name(results.getString(2));
+                employee.setEmployee_last_name(results.getString(3));
+                employee.setEmployee_username(results.getString(4));
+                employee.setEmployee_password(results.getString(5));
+            }
+
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return employee;
+    }
+
+
+
+
+
+
+    public Employee employeeLoginByUsernamePassword(String employee_username, String employee_password) throws EmployeeDoesNotExistException {
 
             Employee employee = null;
 
@@ -57,9 +127,9 @@ public class EmployeeDaoJDBC implements EmployeeDao {
 
                 Connection connection = conUtil.getConnectionThroughENV();
 
-                String sql = "SELECT * FROM employee WHERE employee_email =? and employee_password = ?";
+                String sql = "SELECT * FROM employee WHERE employee_username =? and employee_password = ?";
                 PreparedStatement prepared = connection.prepareStatement(sql);
-                prepared.setString(1, employee_email);
+                prepared.setString(1, employee_username);
                 prepared.setString(2, employee_password);
 
                 ResultSet results = prepared.executeQuery();
@@ -67,11 +137,12 @@ public class EmployeeDaoJDBC implements EmployeeDao {
                 while(results.next()) {
                     employee = new Employee();
 
-                    employee.setEmployee_id(results.getInt(1));
-                    employee.setEmployee_first_name(results.getString(2));
-                    employee.setEmployee_last_name(results.getString(3));
-                    employee.setEmployee_username(results.getString(4));
-                    employee.setEmployee_password(results.getString(5));
+//                    employee.setEmployee_id(results.getInt(1));
+//                    employee.setEmployee_first_name(results.getString(2));
+//                    employee.setEmployee_last_name(results.getString(3));
+//                    employee.setEmployee_email(results.getString(4));
+                    employee.setEmployee_username(results.getString(5));
+                    employee.setEmployee_password(results.getString(6));
                 }
 
             }catch(SQLException e) {

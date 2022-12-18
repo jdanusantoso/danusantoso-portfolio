@@ -2,7 +2,11 @@ package com.revature.service;
 
 import com.revature.exception.EmployeeDoesNotExistException;
 import com.revature.dao.EmployeeDao;
+import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.models.Employee;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class EmployeeService {
 
@@ -16,44 +20,51 @@ public class EmployeeService {
     }
 
 
-    public EmployeeService(TicketService ticketService) {
+    public EmployeeService(EmployeeDao employeeDao, TicketService ticketService) {
+        this.employeeDao = employeeDao;
         this.ticketService = ticketService;
     }
 
-
-
-
-
     public Employee createNewEmployee(String employee_first_name, String employee_last_name, String employee_email,
-                                      String employee_username,  String employee_password, String user_level) {
+                                      String employee_username,  String employee_password, String user_level) throws UsernameAlreadyExistsException {
 
-        Employee e = new Employee();
-        //We are not setting the id, this will be set on the database
-        //We could have created a special constructor with these specific parameters for this use case
-        e.setEmployee_first_name(employee_first_name);
-        e.setEmployee_last_name(employee_last_name);
-        e.setEmployee_email(employee_email);
-        e.setEmployee_username(employee_username);
-        e.setEmployee_password(employee_password);
-        e.setUser_level(user_level);
-
-
-        employeeDao.createNewEmployee(e);
-
-        return e;
-
-    }
-
-    public Employee employeeLoginByEmailPassword(String employee_email, String employee_password) throws EmployeeDoesNotExistException {
-        Employee e = new Employee();
-        e= employeeDao.employeeLoginByEmailPassword(employee_email, employee_password);
-
-        if(employee_email == null) {
-
-            throw new EmployeeDoesNotExistException();
+        try {
+            Employee e = new Employee(0, employee_first_name, employee_last_name, employee_email, employee_username, employee_password, user_level);
+            employeeDao.createNewEmployee(e);
+            return e;
+        } catch (UsernameAlreadyExistsException ex) {
+            return null;
         }
 
-        return e;
     }
 
+    public Employee employeeLoginByUsername(String employee_username) throws EmployeeDoesNotExistException {
+
+        List<Employee> employee = employeeDao.getAllEmployees();
+
+        for(Employee e: employee) {
+            if(e.getEmployee_username().equals(employee_username)) {
+                return e;
+            }
+        }
+
+        //You may want to instead throw an exception
+        throw new EmployeeDoesNotExistException();
+
+    }
+
+
+    public Employee employeeLoginByUsernamePassword(String employee_username, String employee_password) throws EmployeeDoesNotExistException {
+
+        List<Employee> employee = employeeDao.getAllEmployees();
+
+        for (Employee e : employee) {
+            if (e.getEmployee_username().equals(employee_username)) {
+                return e;
+            }
+        }
+
+        //You may want to instead throw an exception
+        throw new EmployeeDoesNotExistException();
+    }
 }

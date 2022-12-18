@@ -9,6 +9,7 @@ import com.revature.dao.TicketDao;
 import com.revature.dao.TicketDaoJDBC;
 import com.revature.exception.EmployeeDoesNotExistException;
 import com.revature.exception.MissingRequiredTicketInformation;
+import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.models.Employee;
 import com.revature.models.Ticket;
 import com.revature.service.EmployeeService;
@@ -24,7 +25,7 @@ public class JDBCEmployeeDriver {
 
 
 
-    public static void main(String[] args) throws MissingRequiredTicketInformation, EmployeeDoesNotExistException {
+    public static void main(String[] args) throws MissingRequiredTicketInformation, EmployeeDoesNotExistException, UsernameAlreadyExistsException {
 
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
@@ -68,15 +69,31 @@ public class JDBCEmployeeDriver {
                             employee_username, employee_password, userLevel);
                     break;
 
-
+//                case 2:
+//                    System.out.print("Please type in your username: ");
+//                    employee_username = input.nextLine();
+//
+//
+//                    empLoggedIn = employeeService.employeeLoginByUsername(employee_username);
+//                    if(empLoggedIn != null) {
+//                        System.out.println("Welcome in: " + empLoggedIn.getEmployee_first_name());
+//                    }
+//
+//                    else {
+//                        //System.out.println("The username does not exists.");
+//                        throw new EmployeeDoesNotExistException();
+//
+//                    }
+//
+//                    break;
 
                 case 2:
-                    System.out.print("Please type in your email: ");
-                    employee_email = input.nextLine();
+                    System.out.print("Please type in your username: ");
+                    employee_username = input.nextLine();
                     System.out.print("Please type in your password: ");
                     employee_password = input.nextLine();
 
-                        empLoggedIn = employeeService.employeeLoginByEmailPassword(employee_email, employee_password);
+                        empLoggedIn = employeeService.employeeLoginByUsernamePassword(employee_username, employee_password);
                         if(empLoggedIn != null) {
                             System.out.println("Welcome in: " + empLoggedIn.getEmployee_first_name());
                         }
@@ -126,20 +143,20 @@ public class JDBCEmployeeDriver {
                     break;
 
 
-                case 4:
-
-
-                    System.out.print("Enter your name to see all the tickets you have submitted: ");
-                    ticket_submitter = input.nextLine();
-
-                    List<Ticket> tickets = ticketService.viewAllEmployeeSubmittedTickets(ticket_submitter);
-
-
-                    for(Ticket t: tickets) {
-                        System.out.println(ticketService.getByTicketSubmitter(ticket_submitter));
-
-                    }
-                    break;
+//                case 4:
+//
+//
+//                    System.out.print("Enter your name to see all the tickets you have submitted: ");
+//                    ticket_submitter = input.nextLine();
+//
+//                    List<Ticket> tickets = ticketService.viewAllEmployeeSubmittedTickets(ticket_submitter);
+//
+//
+//                    for(Ticket t: tickets) {
+//                        System.out.println(ticketService.getByTicketSubmitter(ticket_submitter));
+//
+//                    }
+//                    break;
 
 /*
                 case 5:

@@ -22,6 +22,27 @@ public class Manager {
 
     }
 
+    public Manager(int manager_Id, String employee_firstName, String employee_last_Name, String email, String username, String password, String user_level) {
+        this.manager_Id = manager_Id;
+        this.employee_firstName = employee_firstName;
+        this.employee_last_Name = employee_last_Name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.user_level = user_level;
+    }
+
+    public Manager(int manager_Id, String employee_firstName, String employee_last_Name, String email, String username, String password, String user_level, int employee_Id_FK) {
+        this.manager_Id = manager_Id;
+        this.employee_firstName = employee_firstName;
+        this.employee_last_Name = employee_last_Name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.user_level = user_level;
+        this.employee_Id_FK = employee_Id_FK;
+    }
+
     public int getManager_Id() {
         return manager_Id;
     }

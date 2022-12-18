@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.List;
+
 public class Ticket {
 
     private int ticket_Id;
@@ -27,6 +29,18 @@ public class Ticket {
         this.ticket_submitter = ticket_submitter;
         this.expense_type_fk = expense_type_fk;
         this.ticket_status = ticket_status;
+
+    }
+
+    public Ticket(int ticket_Id, String ticket_name, int expense_date, String expense_description, Double expense_amount, String ticket_submitter, String ticket_status, int expense_type_fk) {
+        this.ticket_Id = ticket_Id;
+        this.ticket_name = ticket_name;
+        this.expense_date = expense_date;
+        this.expense_description = expense_description;
+        this.expense_amount = expense_amount;
+        this.ticket_submitter = ticket_submitter;
+        this.ticket_status = ticket_status;
+        this.expense_type_fk = expense_type_fk;
 
     }
 
@@ -118,17 +132,19 @@ public class Ticket {
         this.expense_type_fk = expense_type_fk;
     }
 
+
     @Override
     public String toString() {
-        return "Ticket [ticket_Id=" + ticket_Id +
-                ", ticket_name=" + ticket_name +
+        return "Ticket{" +
+                "ticket_Id=" + ticket_Id +
+                ", ticket_name='" + ticket_name + '\'' +
                 ", expense_date=" + expense_date +
-                ", expense_description=" + expense_description +
+                ", expense_description='" + expense_description + '\'' +
                 ", expense_amount=" + expense_amount +
-                ", ticket_submitter=" + ticket_submitter +
-                ", ticket_status=" + ticket_status +
+                ", ticket_submitter='" + ticket_submitter + '\'' +
+                ", ticket_status='" + ticket_status + '\'' +
                 ", expense_type_fk=" + expense_type_fk +
-                "]";
+                '}';
     }
 
 }

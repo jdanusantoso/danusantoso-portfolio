@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
@@ -11,12 +12,22 @@ public class Employee {
     private String employee_username;
     private String employee_password;
     private String user_level;
-    private int ticket_id;
+    private List<Ticket> ticket;
 
     public Employee () {
 
         //TODO make an all args when we have completed the class
 
+    }
+
+    public Employee(int employee_id, String employee_first_name, String employee_last_name, String employee_email, String employee_username, String employee_password, String user_level) {
+        this.employee_id = employee_id;
+        this.employee_first_name = employee_first_name;
+        this.employee_last_name = employee_last_name;
+        this.employee_email = employee_email;
+        this.employee_username = employee_username;
+        this.employee_password = employee_password;
+        this.ticket = new ArrayList<>();
     }
 
     public int getEmployee_id() {
@@ -75,24 +86,27 @@ public class Employee {
         this.user_level = user_level;
     }
 
-    public int getTicket_id() {
-        return ticket_id;
+    public List<Ticket> getTicket() {
+        return ticket;
     }
 
-    public void setTicket_id(int ticket_id) {
-        this.ticket_id = ticket_id;
+    public void setTicket(List<Ticket> ticket) {
+        this.ticket = ticket;
     }
 
     @Override
     public String toString() {
-        return "Employee [employee_id=" + employee_id + ", employee_first_name=" + employee_first_name
-                + ", employee_last_name=" + employee_last_name + ", employee_email=" + employee_email
-                + ", employee_username=" + employee_username + ", employee_password=" + employee_password
-                + ", user_level=" + user_level + ", ticket_id=" + ticket_id + "]";
+        return "Employee{" +
+                "employee_id=" + employee_id +
+                ", employee_first_name='" + employee_first_name + '\'' +
+                ", employee_last_name='" + employee_last_name + '\'' +
+                ", employee_email='" + employee_email + '\'' +
+                ", employee_username='" + employee_username + '\'' +
+                ", employee_password='" + employee_password + '\'' +
+                ", user_level='" + user_level + '\'' +
+                ", ticket=" + ticket +
+                '}';
     }
-
-
-
 }
 
 

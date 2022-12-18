@@ -1,6 +1,8 @@
 package com.revature;
 
+import com.revature.controllers.AuthController;
 import com.revature.controllers.EmployeeController;
+import com.revature.controllers.ManagerController;
 import com.revature.controllers.TicketController;
 import com.revature.util.JDBCConnectionUTIL;
 import io.javalin.Javalin;
@@ -35,9 +37,20 @@ public class DriverConnection {
         /*----EndPoint Handlers Below----*/
 
         //Instantiate Controllers
+
+        AuthController ac = new AuthController();
+
+        app.post("/employeeLogin", ac.employeeLoginHandler);
+
+        app.post("/managerLogin", ac.managerLoginHandler);
+
         EmployeeController ec = new EmployeeController();
 
         app.post("/createNewEmployee", ec.createNewEmployee);
+
+        ManagerController mc = new ManagerController();
+
+        app.post("/createNewManager", mc.createNewManager);
 
 
         TicketController tc = new TicketController();

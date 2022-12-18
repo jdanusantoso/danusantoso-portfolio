@@ -3,8 +3,14 @@ package com.revature.service;
 
 
 import com.revature.dao.ManagerDao;
+import com.revature.exception.EmployeeDoesNotExistException;
 import com.revature.exception.ManagerDoesNotExistException;
+import com.revature.exception.UsernameAlreadyExistsException;
+import com.revature.models.Employee;
 import com.revature.models.Manager;
+
+import java.sql.SQLException;
+import java.util.List;
 
 
 public class ManagerService {
@@ -18,33 +24,29 @@ public class ManagerService {
     }
 
     public Manager createNewManager(String employee_first_Name, String employee_last_Name, String email, String username,
-                                    String password, String user_Level, int employee_Id_FK) {
+                                    String password, String user_Level, int employee_Id_FK) throws SQLException {
 
-        Manager m = new Manager();
+        try {
+            Manager m = new Manager(0, employee_first_Name, employee_last_Name, email, username, password, user_Level, employee_Id_FK);
+            managerDao.createNewManager(m);
+            return m;
+        } catch (SQLException ex) {
+            return null;
+        }
 
-        m.setEmployee_firstName(employee_first_Name);
-        m.setEmployee_last_Name(employee_last_Name);
-        m.setEmail(email);
-        m.setUsername(username);
-        m.setPassword(password);
-        m.setUser_level(user_Level);
-        m.setEmployee_Id_FK(employee_Id_FK);
-
-
-        managerDao.createNewManager(m);
-
-        return m;
 
     }
 
     public Manager loginByUsernamePassword(String username, String password) throws ManagerDoesNotExistException {
-        Manager m = new Manager();
-        m= managerDao.loginByUsernamePassword(username, password);
+        List<Manager> manager = managerDao.getAllManagers();
 
-        if(username.isEmpty() && password.isEmpty()) {
-            throw new ManagerDoesNotExistException();
+        for (Manager m : manager) {
+            if (m.getUsername().equals(username)) {
+                return m;
+            }
         }
 
-        return m;
+        //You may want to instead throw an exception
+        throw new ManagerDoesNotExistException();
     }
 }

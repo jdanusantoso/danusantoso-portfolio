@@ -31,7 +31,7 @@ public class JDBCManagerDriver {
 
 
 
-    public static void main(String[] args) throws TicketDoesNotExistException, UnauthorizedResponseException, CannotUpdateException {
+    public static void main(String[] args) throws TicketDoesNotExistException, UnauthorizedResponseException, CannotUpdateException, ManagerDoesNotExistException, SQLException {
 
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
@@ -94,17 +94,13 @@ public class JDBCManagerDriver {
                         loggedIn = managerService.loginByUsernamePassword(username, password);
                         System.out.println("Welcome in: " + loggedIn.getUsername());
                     }catch(ManagerDoesNotExistException ex) {
-                        System.out.println("The username does not exists.");
+                        throw new ManagerDoesNotExistException();
                     }
 
                     break;
 
                 case 3:
                     List<Ticket> tickets = ticketService.retrieveAllSubmittedTickets();
-
-                    for(Ticket t:tickets) {
-                        System.out.println(t);
-                    }
                     break;
 
                 case 4:
@@ -126,25 +122,12 @@ public class JDBCManagerDriver {
                     ticketService.updateTicketStatus(ticket_id, ticket_status, newTicketStatus);
                     break;
 
-//                case 6:
-//
-//                    System.out.println("Type 'Pending' to view all pending tickets");
-//                    ticket_status = in.nextLine();
-//                    tickets = ticketService.viewAllPendingTickets(ticket_status);
-//
-//
-//                    if(!ticket_status.isEmpty()){
-//                        for(Ticket t:tickets) {
-//                            if(tickets.contains("Pending")){
-//                                //ticketService.viewAllPendingTickets(ticket_status);
-//                                System.out.println(t);
-//                            }
-//                    }
-//
-//                    }
-//
-//                    ticketService.viewAllPendingTickets(ticket_status);
-//                    break;
+                case 6:
+
+                    System.out.println("Type 'Pending' to view all pending tickets");
+                    ticket_status = in.nextLine();
+                    ticketService.filterByTicketStatus(ticket_status);
+                    break;
 
                 default:
                     System.out.println("You do not have a valid response. Please type in a number.");

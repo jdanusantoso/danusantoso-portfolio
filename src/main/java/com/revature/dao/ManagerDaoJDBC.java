@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.models.Employee;
 import com.revature.models.Manager;
@@ -14,13 +16,13 @@ public class ManagerDaoJDBC implements ManagerDao  {
     JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
     @Override
-    public void createNewManager(Manager m) {
+    public Manager createNewManager(Manager m) throws SQLException {
         try {
 
             Connection connection = conUtil.getConnectionThroughENV();
 
             String sql = "INSERT INTO manager(employee_first_name, employee_last_name, "
-                    + "email, username, password, user_level, employee_id_FK) "
+                    + "email, username, password, user_level, employee_id_fk) "
                     + "values (?,?,?,?,?,?,?)";
 
             PreparedStatement prepared = connection.prepareStatement(sql);
@@ -35,9 +37,41 @@ public class ManagerDaoJDBC implements ManagerDao  {
 
             prepared.execute();
 
+            return m;
+
         } catch(SQLException e) {
             e.printStackTrace();
         }
+
+        return null;
+
+    }
+
+    @Override
+    public List<Manager> getAllManagers() {
+        List<Manager> manager = new ArrayList<>();
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM employee";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+
+            ResultSet results = prepared.executeQuery();
+
+            while(results.next()) {
+
+                manager.add(new Manager(results.getInt(1), results.getString(2), results.getString(3), results.getString(4),
+                        results.getString(5), results.getString(6), results.getString(7)));
+            }
+
+        }
+
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return manager;
 
     }
 
@@ -60,11 +94,12 @@ public class ManagerDaoJDBC implements ManagerDao  {
             while(results.next()) {
                 manager = new Manager();
 
-                manager.setManager_Id(results.getInt(1));
-                manager.setEmployee_firstName(results.getString(2));
-                manager.setEmployee_last_Name(results.getString(3));
-                manager.setUsername(results.getString(4));
-                manager.setPassword(results.getString(5));
+//                manager.setManager_Id(results.getInt(1));
+//                manager.setEmployee_firstName(results.getString(2));
+//                manager.setEmployee_last_Name(results.getString(3));
+//                manager.setEmail(results.getString(4));
+                manager.setUsername(results.getString(5));
+                manager.setPassword(results.getString(6));
             }
 
         }catch(SQLException e) {
