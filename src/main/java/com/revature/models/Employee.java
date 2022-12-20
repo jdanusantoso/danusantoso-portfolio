@@ -26,6 +26,7 @@ public class Employee {
         this.employee_email = employee_email;
         this.employee_username = employee_username;
         this.employee_password = employee_password;
+        this.user_level = user_level;
     }
 
     public int getEmployee_id() {

@@ -32,7 +32,7 @@ public class ManagerDaoJDBC implements ManagerDao  {
             prepared.setString(3, m.getEmail());
             prepared.setString(4, m.getUsername());
             prepared.setString(5, (m.getPassword()));
-            prepared.setString(6, m.getUser_level());
+            prepared.setString(6, m.getmUser_level());
             prepared.setInt(7, m.getEmployee_Id_FK());
 
             prepared.execute();

@@ -13,6 +13,8 @@ public interface EmployeeDao {
 
     List<Employee> getAllEmployees();
 
+    List<Employee> verifyEmployeeUsernames(String employeeUsername) throws UsernameAlreadyExistsException;
+
     Employee employeeLoginByUsernamePassword(String employeeUsername, String employeePassword) throws EmployeeDoesNotExistException;
 
     /*----------------------------------------Not Used---------------------------------------------------*/

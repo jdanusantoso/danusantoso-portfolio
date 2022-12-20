@@ -3,11 +3,15 @@ package com.revature.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.controllers.AuthController;
 import com.revature.exception.CannotUpdateException;
 import com.revature.exception.MissingRequiredTicketInformationException;
 import com.revature.exception.TicketDoesNotExistException;
 import com.revature.dao.TicketDao;
+import com.revature.models.Employee;
 import com.revature.models.Ticket;
+
+import static com.revature.controllers.AuthController.ses;
 
 public class TicketService {
 
@@ -66,7 +70,22 @@ public class TicketService {
         throw new TicketDoesNotExistException();
     }
 
+    public List<Ticket> viewAllEmployeeSubmittedTickets(String ticket_submitter) {
+
+
+        Employee employee = (Employee) AuthController.ses.getAttribute("user_level");
+        System.out.println(employee);
+
+        if(employee.equals("Employee")){
+            return ticketDao.viewAllEmployeeSubmittedTickets(ticket_submitter);
+        }
+
+        return null;
+    }
+
+
     public boolean updateTicketStatus(int ticket_id, String ticket_status) throws CannotUpdateException, TicketDoesNotExistException {
+
         Ticket t = ticketDao.getByTicketID(ticket_id);
 
         if (t == null) {
@@ -138,9 +157,6 @@ public class TicketService {
         return ticketDao.viewAllPendingTickets(ticket_status);
     }
 
-    public List<Ticket> viewAllEmployeeSubmittedTickets(String ticket_submitter) {
-        return ticketDao.viewAllEmployeeSubmittedTickets(ticket_submitter);
-    }
 
     public List<Ticket> viewAllEmployeeTickets(Employee e) {
         List<Ticket> allTickets = ticketDao.viewAllSubmittedTickets();

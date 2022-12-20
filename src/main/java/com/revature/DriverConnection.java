@@ -49,11 +49,18 @@ public class DriverConnection {
 
         EmployeeController ec = new EmployeeController();
 
+        app.get("/verifyEmployeeUsername", ec.verifyEmployeeUsernameHandler);
+
+        app.exception(UsernameAlreadyExistsException.class, (e, verifyEmployeeUsernameHandler) -> {
+            verifyEmployeeUsernameHandler.status(406);
+            verifyEmployeeUsernameHandler.result("You are trying to input a username that already exists. Please choose another.");
+        });
+
         app.post("/createNewEmployee", ec.createNewEmployee);
 
         app.exception(UsernameAlreadyExistsException.class, (e, createNewEmployee) -> {
             createNewEmployee.status(406);
-            createNewEmployee.result("You are trying to input a username that already exists. Please choose another.");
+            createNewEmployee.result("you are trying to input a username that already exists. Please choose another.");
         });
 
         ManagerController mc = new ManagerController();
@@ -82,7 +89,6 @@ public class DriverConnection {
         });
 
         app.get("/viewAllPendingTickets", tc.viewAllPendingTicketsHandler);
-
 
     }
 }

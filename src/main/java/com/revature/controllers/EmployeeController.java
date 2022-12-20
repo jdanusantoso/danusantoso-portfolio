@@ -15,6 +15,36 @@ public class EmployeeController {
 
     EmployeeDaoJDBC eDAO = new EmployeeDaoJDBC();
 
+    public Handler verifyEmployeeUsernameHandler = (ctx) -> {
+
+        String body = ctx.body();
+
+        Gson gson = new Gson();
+
+        Employee newE = gson.fromJson(body, Employee.class);
+
+        newE = employeeService.verifyEmployeeUsernames( newE.getEmployee_username());
+
+
+        System.out.println(newE);
+        if(newE == null){
+
+
+            ctx.status(406);
+            ctx.result("Employee username already exists.");
+//            throw new UsernameAlreadyExistsException();
+
+
+        }
+
+        else{
+            ctx.status(201);
+            ctx.result("Employee username does not exist yet.");
+        }
+
+    };
+
+
     public Handler createNewEmployee = (ctx) -> {
 
         String body = ctx.body();
@@ -27,17 +57,15 @@ public class EmployeeController {
 
 
         System.out.println(newE);
-        if(newE == null){
-            ctx.status(406);
-            ctx.result("Employee registration failed.");
-//            throw new UsernameAlreadyExistsException();
-
+        if(newE != null){
+            ctx.status(201);
+            ctx.result(body); //Send back the employee
 
         }
 
         else{
-            ctx.status(201);
-            ctx.result(body); //Send back the employee
+            ctx.status(406);
+            ctx.result("You are trying to input a username that already exists. Please choose another.");
         }
 
     };

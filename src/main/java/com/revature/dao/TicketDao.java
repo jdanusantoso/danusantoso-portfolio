@@ -15,6 +15,8 @@ public interface TicketDao {
 
     List<Ticket> viewAllEmployeeSubmittedTickets(String ticket_submitter);
 
+    //List<Ticket> viewAllEmployeeSubmittedTickets(Employee e);
+
     //Manager Ticket Methods
 
     List<Ticket> viewAllSubmittedTickets();

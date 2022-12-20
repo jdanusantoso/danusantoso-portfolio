@@ -83,6 +83,35 @@ public class EmployeeDaoJDBC implements EmployeeDao {
 
     }
 
+    @Override
+    public List<Employee> verifyEmployeeUsernames(String employee_username) {
+        List<Employee> employee = new ArrayList<>();
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM employee WHERE employee_username =?";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+            prepared.setString(1, employee_username);
+
+            ResultSet results = prepared.executeQuery();
+
+            while(results.next()) {
+
+                employee.add(new Employee(results.getInt(1), results.getString(2), results.getString(3), results.getString(4),
+                        results.getString(5), results.getString(6), results.getString(7)));
+            }
+
+        }
+
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return employee;
+
+    }
+
     public Employee employeeLoginByUsernamePassword(String employee_username, String employee_password) throws EmployeeDoesNotExistException {
 
         Employee employee = null;

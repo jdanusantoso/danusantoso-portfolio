@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import com.google.gson.Gson;
 import com.revature.dao.TicketDaoJDBC;
+import com.revature.models.Employee;
 import com.revature.models.Ticket;
 import com.revature.service.TicketService;
 import io.javalin.http.Handler;
@@ -17,6 +18,14 @@ public class TicketController {
     public Handler getTicketHandlerSubmitted = (ctx) -> {
 
         if(AuthController.ses != null){
+
+            Employee employee = (Employee) AuthController.ses.getAttribute("mUser_level");
+
+            if(employee == null){
+                ctx.status(403);
+                ctx.result("You must be logged as an manager in order to perform this action.");
+                return;
+            }
 
             List<Ticket> tickets = tDao.viewAllSubmittedTickets();
 
@@ -37,6 +46,15 @@ public class TicketController {
     public Handler createNewTicket = (ctx) -> {
 
         if(AuthController.ses != null){
+
+            Employee employee = (Employee) AuthController.ses.getAttribute("user_level");
+
+            if(employee == null){
+                ctx.status(403);
+                ctx.result("You must be logged as an employee in order to perform this action.");
+                return;
+            }
+
             String body = ctx.body();
 
             Gson gson = new Gson();
@@ -61,7 +79,18 @@ public class TicketController {
 
     public Handler viewAllEmployeeSubmittedTicketsHandler = (ctx) -> {
 
+
         if(AuthController.ses != null){
+
+            Employee employee = (Employee) AuthController.ses.getAttribute("user_level");
+
+            if(employee == null){
+                ctx.status(403);
+                ctx.result("You must be logged as an employee in order to perform this action.");
+                return;
+            }
+
+
             List<Ticket> tickets = tDao.viewAllEmployeeSubmittedTickets("Joey Santos");
 
             Gson gson = new Gson();
@@ -77,7 +106,15 @@ public class TicketController {
 
     public Handler updateTicketStatusHandler = (ctx) -> {
 
-        //if(AuthController.ses != null){
+        if(AuthController.ses != null){
+
+            Employee manager = (Employee) AuthController.ses.getAttribute("mUser_level");
+
+            if(manager == null){
+                ctx.status(403);
+                ctx.result("You must be logged as an manager in order to perform this action.");
+                return;
+            }
 
             int ticket_id = Integer.parseInt(ctx.pathParam("id"));
 
@@ -90,15 +127,25 @@ public class TicketController {
                 ctx.result("Expense ticket reimbursement submission update failed.");
             }
 
-        /*}else{
+        }else{
             ctx.result("You must be logged in order to perform this action.");
             ctx.status(401);
-        }*/
+        }
     };
 
     public Handler viewAllPendingTicketsHandler = (ctx) -> {
 
         if(AuthController.ses != null){
+
+            Employee manager = (Employee) AuthController.ses.getAttribute("mUser_level");
+
+            if(manager == null){
+                ctx.status(403);
+                ctx.result("You must be logged as an manager in order to perform this action.");
+                return;
+            }
+
+            System.out.println(AuthController.ses.getAttribute("mUser_level"));
 
             //String ticket_status = "Pending";
 

@@ -10,7 +10,7 @@ public class Manager {
     private String email;
     private String username;
     private String password;
-    private String user_level;
+    private String mUser_level;
     private int employee_Id_FK;
     private List<Ticket> viewAllSubmittedTickets;
 
@@ -22,14 +22,14 @@ public class Manager {
 
     }
 
-    public Manager(int manager_Id, String employee_firstName, String employee_last_Name, String email, String username, String password, String user_level) {
+    public Manager(int manager_Id, String employee_firstName, String employee_last_Name, String email, String username, String password, String mUser_level) {
         this.manager_Id = manager_Id;
         this.employee_firstName = employee_firstName;
         this.employee_last_Name = employee_last_Name;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.user_level = user_level;
+        this.mUser_level = mUser_level;
     }
 
     public Manager(int manager_Id, String employee_firstName, String employee_last_Name, String email, String username, String password, String user_level, int employee_Id_FK) {
@@ -39,7 +39,7 @@ public class Manager {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.user_level = user_level;
+        this.mUser_level = mUser_level;
         this.employee_Id_FK = employee_Id_FK;
     }
 
@@ -91,12 +91,12 @@ public class Manager {
         this.password = password;
     }
 
-    public String getUser_level() {
-        return user_level;
+    public String getmUser_level() {
+        return mUser_level;
     }
 
-    public void setUser_level(String user_level) {
-        this.user_level = user_level;
+    public void setmUser_level(String mUser_level) {
+        this.mUser_level = mUser_level;
     }
 
     public int getEmployee_Id_FK() {
@@ -119,10 +119,17 @@ public class Manager {
 
     @Override
     public String toString() {
-        return "Manager [manager_Id=" + manager_Id + ", employee_firstName=" + employee_firstName
-                + ", employee_last_Name=" + employee_last_Name + ", email=" + email + ", username=" + username
-                + ", password=" + password + ", user_level=" + user_level + ", employee_Id_FK=" + employee_Id_FK
-                + ", viewAllSubmittedTickets=" + viewAllSubmittedTickets + "]";
+        return "Manager{" +
+                "manager_Id=" + manager_Id +
+                ", employee_firstName='" + employee_firstName + '\'' +
+                ", employee_last_Name='" + employee_last_Name + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", mUser_level='" + mUser_level + '\'' +
+                ", employee_Id_FK=" + employee_Id_FK +
+                ", viewAllSubmittedTickets=" + viewAllSubmittedTickets +
+                '}';
     }
 
 }
