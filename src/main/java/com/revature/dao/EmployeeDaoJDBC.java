@@ -19,7 +19,7 @@ public class EmployeeDaoJDBC implements EmployeeDao {
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
     @Override
-    public Employee createNewEmployee(Employee e) throws UsernameAlreadyExistsException {
+    public Employee createNewEmployee(Employee e) throws UsernameAlreadyExistsException{
         try {
 
             Connection connection = conUtil.getConnectionThroughENV();
@@ -83,6 +83,41 @@ public class EmployeeDaoJDBC implements EmployeeDao {
 
     }
 
+    public Employee employeeLoginByUsernamePassword(String employee_username, String employee_password) throws EmployeeDoesNotExistException {
+
+        Employee employee = null;
+
+        try {
+
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM employee WHERE employee_username =? and employee_password = ?";
+            PreparedStatement prepared = connection.prepareStatement(sql);
+            prepared.setString(1, employee_username);
+            prepared.setString(2, employee_password);
+
+            ResultSet results = prepared.executeQuery();
+
+            while(results.next()) {
+                employee = new Employee();
+
+//                    employee.setEmployee_id(results.getInt(1));
+//                    employee.setEmployee_first_name(results.getString(2));
+//                    employee.setEmployee_last_name(results.getString(3));
+//                    employee.setEmployee_email(results.getString(4));
+                employee.setEmployee_username(results.getString(5));
+                employee.setEmployee_password(results.getString(6));
+            }
+
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return employee;
+    }
+
+    /*----------------------------------Not Used---------------------------------------*/
+
     public Employee employeeLoginByUsername(String employee_username) throws EmployeeDoesNotExistException {
 
         Employee employee = null;
@@ -107,50 +142,13 @@ public class EmployeeDaoJDBC implements EmployeeDao {
                 employee.setEmployee_password(results.getString(5));
             }
 
-        }catch(SQLException e) {
+        }catch( SQLException e) {
             e.printStackTrace();
         }
 
         return employee;
     }
 
-
-
-
-
-
-    public Employee employeeLoginByUsernamePassword(String employee_username, String employee_password) throws EmployeeDoesNotExistException {
-
-            Employee employee = null;
-
-            try {
-
-                Connection connection = conUtil.getConnectionThroughENV();
-
-                String sql = "SELECT * FROM employee WHERE employee_username =? and employee_password = ?";
-                PreparedStatement prepared = connection.prepareStatement(sql);
-                prepared.setString(1, employee_username);
-                prepared.setString(2, employee_password);
-
-                ResultSet results = prepared.executeQuery();
-
-                while(results.next()) {
-                    employee = new Employee();
-
-//                    employee.setEmployee_id(results.getInt(1));
-//                    employee.setEmployee_first_name(results.getString(2));
-//                    employee.setEmployee_last_name(results.getString(3));
-//                    employee.setEmployee_email(results.getString(4));
-                    employee.setEmployee_username(results.getString(5));
-                    employee.setEmployee_password(results.getString(6));
-                }
-
-            }catch(SQLException e) {
-                e.printStackTrace();
-            }
-
-            return employee;
-        }
     }
 
 

@@ -210,6 +210,30 @@ public class TicketDaoJDBC implements TicketDao {
     }
 
     @Override
+    public boolean updateTicketStatus (String ticket_status, int ticket_id) throws CannotUpdateException {
+        try  {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "UPDATE tickets SET ticket_status = ? WHERE ticket_ID =?";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+
+            prepared.setString(1, ticket_status);
+            prepared.setInt(2, ticket_id);
+
+            prepared.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+
+    }
+
+    @Override
     public List<Ticket> viewAllPendingTickets(String ticket_status) {
         List<Ticket> ticket = new ArrayList<>();
 
@@ -259,6 +283,10 @@ public class TicketDaoJDBC implements TicketDao {
         return ticket;
 
     }
+
+
+
+    /*-----------------------------Unused Methods------------------------------------*/
 
     @Override
     public Ticket getByTicketID(int ticket_id) {
@@ -469,29 +497,7 @@ public class TicketDaoJDBC implements TicketDao {
 
     }
 
-    @Override
-    public boolean updateTicketStatus (String ticket_status, int ticket_id) throws CannotUpdateException {
-        try  {
-            Connection connection = conUtil.getConnectionThroughENV();
 
-            String sql = "UPDATE tickets SET ticket_status = ? WHERE ticket_ID =?";
-
-            PreparedStatement prepared = connection.prepareStatement(sql);
-
-            prepared.setString(1, ticket_status);
-            prepared.setInt(2, ticket_id);
-
-            prepared.executeUpdate();
-
-            return true;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return false;
-
-    }
 }
 
 

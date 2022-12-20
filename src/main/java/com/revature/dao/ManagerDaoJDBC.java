@@ -54,7 +54,7 @@ public class ManagerDaoJDBC implements ManagerDao  {
         try {
             Connection connection = conUtil.getConnectionThroughENV();
 
-            String sql = "SELECT * FROM employee";
+            String sql = "SELECT * FROM manager";
 
             PreparedStatement prepared = connection.prepareStatement(sql);
 

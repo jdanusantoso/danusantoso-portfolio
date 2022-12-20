@@ -12,7 +12,6 @@ public class Employee {
     private String employee_username;
     private String employee_password;
     private String user_level;
-    private List<Ticket> ticket;
 
     public Employee () {
 
@@ -27,7 +26,6 @@ public class Employee {
         this.employee_email = employee_email;
         this.employee_username = employee_username;
         this.employee_password = employee_password;
-        this.ticket = new ArrayList<>();
     }
 
     public int getEmployee_id() {
@@ -86,14 +84,6 @@ public class Employee {
         this.user_level = user_level;
     }
 
-    public List<Ticket> getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(List<Ticket> ticket) {
-        this.ticket = ticket;
-    }
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -104,7 +94,6 @@ public class Employee {
                 ", employee_username='" + employee_username + '\'' +
                 ", employee_password='" + employee_password + '\'' +
                 ", user_level='" + user_level + '\'' +
-                ", ticket=" + ticket +
                 '}';
     }
 }

@@ -116,10 +116,10 @@ public class JDBCManagerDriver {
                     System.out.print("Please enter the ticket id you want to approve or deny.");
                     ticket_id = in.nextInt();
                     System.out.println("What is the current ticket status?");
-                    String ticket_status = in.nextLine() + in.next();
+                    String oldTicket_status = in.nextLine() + in.next();
                     System.out.println("Enter Approved or Denied");
-                    String newTicketStatus = in.nextLine() + in.next();
-                    ticketService.updateTicketStatus(ticket_id, ticket_status, newTicketStatus);
+                    String ticket_status = in.nextLine() + in.next();
+                    ticketService.updateTicketStatus(ticket_id, ticket_status);
                     break;
 
                 case 6:

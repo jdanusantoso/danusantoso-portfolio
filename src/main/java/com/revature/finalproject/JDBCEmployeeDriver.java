@@ -8,7 +8,7 @@ import com.revature.dao.EmployeeDaoJDBC;
 import com.revature.dao.TicketDao;
 import com.revature.dao.TicketDaoJDBC;
 import com.revature.exception.EmployeeDoesNotExistException;
-import com.revature.exception.MissingRequiredTicketInformation;
+import com.revature.exception.MissingRequiredTicketInformationException;
 import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.models.Employee;
 import com.revature.models.Ticket;
@@ -25,7 +25,7 @@ public class JDBCEmployeeDriver {
 
 
 
-    public static void main(String[] args) throws MissingRequiredTicketInformation, EmployeeDoesNotExistException, UsernameAlreadyExistsException {
+    public static void main(String[] args) throws MissingRequiredTicketInformationException, EmployeeDoesNotExistException, UsernameAlreadyExistsException {
 
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 

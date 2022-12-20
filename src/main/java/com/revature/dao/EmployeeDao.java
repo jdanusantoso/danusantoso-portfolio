@@ -13,7 +13,9 @@ public interface EmployeeDao {
 
     List<Employee> getAllEmployees();
 
+    Employee employeeLoginByUsernamePassword(String employeeUsername, String employeePassword) throws EmployeeDoesNotExistException;
+
+    /*----------------------------------------Not Used---------------------------------------------------*/
     Employee employeeLoginByUsername(String employeeUsername) throws EmployeeDoesNotExistException;
 
-    Employee employeeLoginByUsernamePassword(String employeeUsername, String employeePassword) throws EmployeeDoesNotExistException;
 }

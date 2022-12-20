@@ -4,6 +4,9 @@ import com.revature.controllers.AuthController;
 import com.revature.controllers.EmployeeController;
 import com.revature.controllers.ManagerController;
 import com.revature.controllers.TicketController;
+import com.revature.exception.CannotUpdateException;
+import com.revature.exception.MissingRequiredTicketInformationException;
+import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.util.JDBCConnectionUTIL;
 import io.javalin.Javalin;
 
@@ -48,6 +51,11 @@ public class DriverConnection {
 
         app.post("/createNewEmployee", ec.createNewEmployee);
 
+        app.exception(UsernameAlreadyExistsException.class, (e, createNewEmployee) -> {
+            createNewEmployee.status(406);
+            createNewEmployee.result("You are trying to input a username that already exists. Please choose another.");
+        });
+
         ManagerController mc = new ManagerController();
 
         app.post("/createNewManager", mc.createNewManager);
@@ -57,13 +65,24 @@ public class DriverConnection {
 
         app.post("/createNewTicket", tc.createNewTicket);
 
+        app.exception(MissingRequiredTicketInformationException.class, (e, createNewTicket) -> {
+            createNewTicket.status(406);
+            createNewTicket.result("You are submitting a ticket that does not have the required ticket submitter name, expense description, and/or expense amount.");
+        });
+
         app.get("/viewAllEmployeeSubmittedTickets", tc.viewAllEmployeeSubmittedTicketsHandler);
 
         app.get("/viewAllSubmittedTickets", tc.getTicketHandlerSubmitted);
 
         app.patch("/updateTicketStatus/{id}", tc.updateTicketStatusHandler);
 
+        app.exception(CannotUpdateException.class, (e, updateTicketStatusHandler) -> {
+            updateTicketStatusHandler.status(406);
+            updateTicketStatusHandler.result("You are trying to update an unchangeable field.");
+        });
+
         app.get("/viewAllPendingTickets", tc.viewAllPendingTicketsHandler);
+
 
     }
 }
