@@ -13,8 +13,6 @@ public class EmployeeController {
 
     private static EmployeeService employeeService = new EmployeeService(new EmployeeDaoJDBC(), new TicketService(new TicketDaoJDBC()));
 
-    EmployeeDaoJDBC eDAO = new EmployeeDaoJDBC();
-
     public Handler verifyEmployeeUsernameHandler = (ctx) -> {
 
         String body = ctx.body();

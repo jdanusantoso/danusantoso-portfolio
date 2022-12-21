@@ -15,8 +15,6 @@ public interface EmployeeDao {
 
     List<Employee> verifyEmployeeUsernames(String employeeUsername) throws UsernameAlreadyExistsException;
 
-
-
     Employee employeeLoginByUsernamePassword(String employee_username, String employee_password) throws EmployeeDoesNotExistException;
 
 }

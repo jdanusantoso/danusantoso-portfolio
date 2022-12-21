@@ -2,8 +2,6 @@ package com.revature.controllers;
 
 import com.google.gson.Gson;
 import com.revature.dao.TicketDaoJDBC;
-import com.revature.models.Employee;
-import com.revature.models.Manager;
 import com.revature.models.Ticket;
 import com.revature.service.TicketService;
 import io.javalin.http.Handler;
@@ -14,7 +12,6 @@ public class TicketController {
 
 
     private static TicketService ticketService = new TicketService(new TicketDaoJDBC());
-    TicketDaoJDBC tDao = new TicketDaoJDBC();
 
     /*-----------------------Employee Ticket Functionality-----------------------------*/
 
@@ -157,8 +154,6 @@ public class TicketController {
             }
 
             System.out.println(AuthController.ses.getAttribute("mUser_level"));
-
-            //String ticket_status = "Pending";
 
             List<Ticket> tickets = ticketService.viewAllPendingTickets("Pending");
 

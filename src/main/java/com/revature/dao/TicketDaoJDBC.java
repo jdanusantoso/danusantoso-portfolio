@@ -55,59 +55,6 @@ public class TicketDaoJDBC implements TicketDao {
 
     }
 
-/*
-    @Override
-    public List<Ticket> viewAllEmployeeSubmittedTickets(String ticket_submitter) {
-        List<Ticket> ticket = new ArrayList<>();
-
-        try {
-            Connection connection = conUtil.getConnectionThroughENV();
-
-            String sql = "SELECT * FROM tickets WHERE ticket_submitter = ?";
-
-            PreparedStatement prepared = connection.prepareStatement(sql);
-
-            ResultSet results = prepared.executeQuery();
-
-            while(results.next()) {
-
-                TicketType expenseType;
-
-                switch(results.getInt(8)) {
-                    case 1:
-                        expenseType = TicketType.Food;
-                        break;
-                    case 2:
-                        expenseType = TicketType.Lodging;
-                        break;
-                    case 3:
-                        expenseType = TicketType.Travel;
-                        break;
-                    case 4:
-                        expenseType = TicketType.Professional_Development;
-                        break;
-                    default:
-                        expenseType = TicketType.Other;
-                        break;
-                }
-
-
-
-                ticket.add(new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
-                        results.getString(5), results.getInt(6), results.getString(7), results.getInt(8) ));
-            }
-
-        }
-
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return ticket;
-
-    }
-
-
- */
 
     @Override
     public List<Ticket> viewAllSubmittedTickets() {
@@ -211,57 +158,6 @@ public class TicketDaoJDBC implements TicketDao {
 
     }
 
-
-
-//    @Override
-//    public List<Ticket> viewAllEmployeeSubmittedTickets(Employee e) {
-//        List<Ticket> ticket = new ArrayList<>();
-//
-//        try {
-//            Connection connection = conUtil.getConnectionThroughENV();
-//
-//            String sql = "SELECT * FROM tickets where ticket_submitter = ?";
-//
-//            PreparedStatement prepared = connection.prepareStatement(sql);
-//
-//            ResultSet results = prepared.executeQuery();
-//
-//            while(results.next()) {
-//
-//                TicketType expenseType;
-//
-//                switch(results.getInt(8)) {
-//                    case 1:
-//                        expenseType = TicketType.Food;
-//                        break;
-//                    case 2:
-//                        expenseType = TicketType.Lodging;
-//                        break;
-//                    case 3:
-//                        expenseType = TicketType.Travel;
-//                        break;
-//                    case 4:
-//                        expenseType = TicketType.Professional_Development;
-//                        break;
-//                    default:
-//                        expenseType = TicketType.Other;
-//                        break;
-//                }
-//
-//
-//
-//                ticket.add(new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
-//                        results.getString(5), results.getInt(6), results.getString(7) ));
-//            }
-//
-//        }
-//
-//        catch(SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return ticket;
-//
-//    }
 
     @Override
     public Ticket getByTicketID(int ticket_id) {

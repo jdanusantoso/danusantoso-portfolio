@@ -83,20 +83,4 @@ public class EmployeeService {
         throw new EmployeeDoesNotExistException();
     }
 
-    /*---------------------NOT USED---------------------------*/
-    public Employee employeeLoginByUsername(String employee_username) throws EmployeeDoesNotExistException {
-
-        List<Employee> employee = employeeDao.getAllEmployees();
-
-        for(Employee e: employee) {
-            if(e.getEmployee_username().equals(employee_username)) {
-                return e;
-            }
-        }
-
-        //You may want to instead throw an exception
-        throw new EmployeeDoesNotExistException();
-
-    }
-
 }

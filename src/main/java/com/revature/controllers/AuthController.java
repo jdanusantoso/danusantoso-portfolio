@@ -17,13 +17,7 @@ import javax.servlet.http.HttpSession;
 public class AuthController {
 
     private static EmployeeService employeeService = new EmployeeService(new EmployeeDaoJDBC(), new TicketService(new TicketDaoJDBC()));
-
-    EmployeeDaoJDBC eDao = new EmployeeDaoJDBC();
-
     private static ManagerService managerService = new ManagerService(new ManagerDaoJDBC(), new TicketService(new TicketDaoJDBC()));
-
-
-    ManagerDaoJDBC mDao = new ManagerDaoJDBC();
 
     public static HttpSession ses;
 

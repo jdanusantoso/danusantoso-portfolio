@@ -88,29 +88,6 @@ public class TicketService {
     }
 
 
-//    public boolean updateTicketStatus(String ticket_status, int ticket_id) throws CannotUpdateException, TicketDoesNotExistException {
-//
-//        Ticket t = ticketDao.getByTicketID(ticket_id);
-//
-//        if (t == null) {
-//            return false;
-//        }
-//
-//        if (t.contains("Approved") || ticket_status.equals("Denied")) {
-//            throw new CannotUpdateException();
-//
-//        }
-//
-//        t.setTicket_status(ticket_status);
-//        System.out.println("That is a valid answer.");
-//
-//
-//
-//        ticketDao.updateTicketStatus(ticket_status, ticket_id);
-//
-//        return false;
-//    }
-
 
     public boolean updateTicketStatus(int ticket_id, String ticket_status) throws CannotUpdateException, TicketDoesNotExistException {
         Ticket t = ticketDao.getByTicketID(ticket_id);
@@ -119,7 +96,7 @@ public class TicketService {
             return false;
         }
 
-        //Return specific ticket id
+
 
         if (t.ticket_status.equals("Pending")) {
             t.setTicket_status(ticket_status);
