@@ -2,20 +2,14 @@ package com.revature.finalproject;
 
 import java.util.List;
 import java.util.Scanner;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
 import java.sql.Connection;
 
 import com.revature.dao.ManagerDao;
 import com.revature.dao.ManagerDaoJDBC;
 import com.revature.dao.TicketDao;
 import com.revature.dao.TicketDaoJDBC;
-import com.revature.exception.CannotUpdateException;
-import com.revature.exception.ManagerDoesNotExistException;
-import com.revature.exception.TicketDoesNotExistException;
-import com.revature.exception.UnauthorizedResponseException;
+import com.revature.exception.*;
 import com.revature.models.Manager;
 import com.revature.models.Ticket;
 import com.revature.service.TicketService;
@@ -27,11 +21,11 @@ public class JDBCManagerDriver {
     private static ManagerDao managerDao= new ManagerDaoJDBC();
     private static TicketDao ticketDao = new TicketDaoJDBC();
     private static TicketService ticketService = new TicketService(ticketDao);
-    private static ManagerService managerService = new ManagerService(managerDao, ticketService);
+    private static ManagerService managerService = new ManagerService(managerDao, new TicketService(new TicketDaoJDBC()));
 
 
 
-    public static void main(String[] args) throws TicketDoesNotExistException, UnauthorizedResponseException, CannotUpdateException, ManagerDoesNotExistException, SQLException {
+    public static void main(String[] args) throws TicketDoesNotExistException, UnauthorizedResponseException, CannotUpdateException, ManagerDoesNotExistException, SQLException, UsernameAlreadyExistsException {
 
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 

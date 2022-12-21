@@ -193,7 +193,10 @@ public class JDBCEmployeeDriver {
 
         input.close();
 
+        System.gc();
+
     }
+
 
 }
 

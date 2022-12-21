@@ -39,7 +39,7 @@ public class AuthController {
             ses.setAttribute("employee_first_name", empLoggedIn.getEmployee_first_name());
             ses.setAttribute("employee_last_name", empLoggedIn.getEmployee_last_name());
             ses.setAttribute("employee_email", empLoggedIn.getEmployee_email());
-            ses.setAttribute("employee_username", empLoggedIn.getEmployee_username());
+//            ses.setAttribute("employee_username", empLoggedIn.getEmployee_username());
             ses.setAttribute("employee_password", empLoggedIn.getEmployee_password());
             ses.setAttribute("user_level", empLoggedIn.getUser_level());
 

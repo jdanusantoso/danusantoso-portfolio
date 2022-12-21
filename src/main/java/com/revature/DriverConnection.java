@@ -5,6 +5,7 @@ import com.revature.controllers.EmployeeController;
 import com.revature.controllers.ManagerController;
 import com.revature.controllers.TicketController;
 import com.revature.exception.CannotUpdateException;
+import com.revature.exception.EmployeeDoesNotExistException;
 import com.revature.exception.MissingRequiredTicketInformationException;
 import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.util.JDBCConnectionUTIL;
@@ -47,11 +48,9 @@ public class DriverConnection {
 
         app.post("/managerLogin", ac.managerLoginHandler);
 
-        app.get("/userLogOut", ac.userLogOutHandler);
-
         EmployeeController ec = new EmployeeController();
 
-        app.get("/verifyEmployeeUsername", ec.verifyEmployeeUsernameHandler);
+        /*app.get("/verifyEmployeeUsernames", ec.verifyEmployeeUsernamesHandler);*/
 
         app.exception(UsernameAlreadyExistsException.class, (e, verifyEmployeeUsernameHandler) -> {
             verifyEmployeeUsernameHandler.status(406);
@@ -65,10 +64,10 @@ public class DriverConnection {
             createNewEmployee.result("you are trying to input a username that already exists. Please choose another.");
         });
 
+
         ManagerController mc = new ManagerController();
 
         app.post("/createNewManager", mc.createNewManager);
-
 
         TicketController tc = new TicketController();
 

@@ -16,6 +16,35 @@ public class ManagerDaoJDBC implements ManagerDao  {
     JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
     @Override
+    public List<Manager> verifyManagerUsernames(String username) {
+        List<Manager> manager = new ArrayList<>();
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM manager WHERE username =?";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+            prepared.setString(1, username);
+
+            ResultSet results = prepared.executeQuery();
+
+            while(results.next()) {
+
+                manager.add(new Manager(results.getInt(1), results.getString(2), results.getString(3), results.getString(4),
+                        results.getString(5), results.getString(6), results.getString(7), results.getInt(8)));
+            }
+
+        }
+
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return manager;
+
+    }
+
+    @Override
     public Manager createNewManager(Manager m) throws SQLException {
         try {
 
@@ -28,12 +57,12 @@ public class ManagerDaoJDBC implements ManagerDao  {
             PreparedStatement prepared = connection.prepareStatement(sql);
 
             prepared.setString(1, m.getEmployee_firstName());
-            prepared.setString(2, (m.getEmployee_last_Name()));
-            prepared.setString(3, m.getEmail());
-            prepared.setString(4, m.getUsername());
-            prepared.setString(5, (m.getPassword()));
+            prepared.setString(2, m.getEmployee_last_Name());
+//            prepared.setString(3, m.getEmail());
+//            prepared.setString(4, m.getUsername());
+//            prepared.setString(5, m.getPassword());
             prepared.setString(6, m.getmUser_level());
-            prepared.setInt(7, m.getEmployee_Id_FK());
+//            prepared.setInt(7, m.getEmployee_Id_FK());
 
             prepared.execute();
 

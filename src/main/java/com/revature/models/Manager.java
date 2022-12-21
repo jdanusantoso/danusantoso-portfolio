@@ -32,7 +32,7 @@ public class Manager {
         this.mUser_level = mUser_level;
     }
 
-    public Manager(int manager_Id, String employee_firstName, String employee_last_Name, String email, String username, String password, String user_level, int employee_Id_FK) {
+    public Manager(int manager_Id, String employee_firstName, String employee_last_Name, String email, String username, String password, String mUser_level, int employee_Id_FK) {
         this.manager_Id = manager_Id;
         this.employee_firstName = employee_firstName;
         this.employee_last_Name = employee_last_Name;

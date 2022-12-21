@@ -12,8 +12,8 @@ import io.javalin.http.Handler;
 public class EmployeeController {
 
     private static EmployeeService employeeService = new EmployeeService(new EmployeeDaoJDBC(), new TicketService(new TicketDaoJDBC()));
-
-    public Handler verifyEmployeeUsernameHandler = (ctx) -> {
+/*
+    public Handler verifyEmployeeUsernamesHandler = (ctx) -> {
 
         String body = ctx.body();
 
@@ -21,27 +21,24 @@ public class EmployeeController {
 
         Employee newE = gson.fromJson(body, Employee.class);
 
-        newE = employeeService.employeeLoginByUsernamePassword(newE.getEmployee_username(), newE.getEmployee_password());
+        newE = employeeService.verifyEmployeeUsernames(newE.getEmployee_username());
 
-
-        System.out.println(newE);
-        if(newE == null){
-
-
-            ctx.status(406);
-            ctx.result("Employee username already exists.");
-//            throw new UsernameAlreadyExistsException();
-
-
-        }
-
-        else{
+        if(newE != null){
             ctx.status(201);
             ctx.result("Employee username does not exist yet.");
+
+        }else{
+            ctx.status(406);
+            ctx.result("Employee username already exists.");
+
+
+
         }
 
-    };
 
+
+    };
+*/
 
     public Handler createNewEmployee = (ctx) -> {
 
@@ -58,6 +55,8 @@ public class EmployeeController {
         if(newE != null){
             ctx.status(201);
             ctx.result(body); //Send back the employee
+
+
 
         }
 

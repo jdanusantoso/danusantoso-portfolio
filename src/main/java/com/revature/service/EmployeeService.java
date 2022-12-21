@@ -24,39 +24,46 @@ public class EmployeeService {
         this.employeeDao = employeeDao;
         this.ticketService = ticketService;
     }
-
+/*
     public Employee verifyEmployeeUsernames(String employee_username) throws UsernameAlreadyExistsException {
 
-        List<Employee> employee = employeeDao.verifyEmployeeUsernames(employee_username);
+        List<Employee> employee = employeeDao.getAllEmployees();
+
 
         for (Employee e : employee) {
             if (!e.getEmployee_username().equals(employee_username)) {
-                System.out.println("You can use this username.");;
+                System.out.println(employee_username);
+                System.out.println(e.getEmployee_username());
+                return e;
+            }else{
+                return null;
             }
         }
 
         //You may want to instead throw an exception
         throw new UsernameAlreadyExistsException();
     }
-
+*/
     public Employee createNewEmployee(String employee_first_name, String employee_last_name, String employee_email,
                                       String employee_username,  String employee_password, String user_level) throws UsernameAlreadyExistsException {
 
-        List<Employee> employee = employeeDao.verifyEmployeeUsernames(employee_username);
+        List<Employee> employee = employeeDao.getAllEmployees();
 
         for (Employee e : employee) {
             if (!e.getEmployee_username().equals(employee_username)) {
+                System.out.println(e.getEmployee_username() + " " + employee_username);
                 e = new Employee(0, employee_first_name, employee_last_name, employee_email, employee_username, employee_password, user_level);
                 employeeDao.createNewEmployee(e);
                 return e;
-            }else{
+            }else {
                 return null;
-
             }
         }
 
         //You may want to instead throw an exception
         throw new UsernameAlreadyExistsException();
+
+
 
 
 //        try {
