@@ -10,7 +10,7 @@ public class Ticket {
     private String expense_description;
     private Double expense_amount;
     private String ticket_submitter;
-    private String ticket_status;
+    public String ticket_status;
     private int expense_type_fk;
 
 

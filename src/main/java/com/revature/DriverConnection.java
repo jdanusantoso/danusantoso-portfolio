@@ -85,12 +85,12 @@ public class DriverConnection {
 
         app.patch("/updateTicketStatus/{id}", tc.updateTicketStatusHandler);
 
-        /*
+
         app.exception(CannotUpdateException.class, (e, updateTicketStatusHandler) -> {
             updateTicketStatusHandler.status(406);
             updateTicketStatusHandler.result("You are trying to update an unchangeable field.");
         });
-*/
+
         app.get("/viewAllPendingTickets", tc.viewAllPendingTicketsHandler);
 
     }

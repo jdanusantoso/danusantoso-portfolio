@@ -3,12 +3,10 @@ package com.revature.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.controllers.AuthController;
 import com.revature.exception.CannotUpdateException;
 import com.revature.exception.MissingRequiredTicketInformationException;
 import com.revature.exception.TicketDoesNotExistException;
 import com.revature.dao.TicketDao;
-import com.revature.models.Employee;
 import com.revature.models.Ticket;
 
 public class TicketService {
@@ -90,47 +88,53 @@ public class TicketService {
     }
 
 
-    public boolean updateTicketStatus(String ticket_status, int ticket_id) throws CannotUpdateException, TicketDoesNotExistException {
+//    public boolean updateTicketStatus(String ticket_status, int ticket_id) throws CannotUpdateException, TicketDoesNotExistException {
+//
+//        Ticket t = ticketDao.getByTicketID(ticket_id);
+//
+//        if (t == null) {
+//            return false;
+//        }
+//
+//        if (t.contains("Approved") || ticket_status.equals("Denied")) {
+//            throw new CannotUpdateException();
+//
+//        }
+//
+//        t.setTicket_status(ticket_status);
+//        System.out.println("That is a valid answer.");
+//
+//
+//
+//        ticketDao.updateTicketStatus(ticket_status, ticket_id);
+//
+//        return false;
+//    }
 
+
+    public boolean updateTicketStatus(int ticket_id, String ticket_status) throws CannotUpdateException, TicketDoesNotExistException {
         Ticket t = ticketDao.getByTicketID(ticket_id);
 
         if (t == null) {
             return false;
         }
 
-        if (ticket_status.equals("Approved") || ticket_status.equals("Denied")) {
-            //throw new CannotUpdateException();
-            return false;
+        //Return specific ticket id
 
-
-
-        } else {
+        if (t.ticket_status.equals("Pending")) {
             t.setTicket_status(ticket_status);
             System.out.println("That is a valid answer.");
+
+
+
+        } else if (t.ticket_status.equals("Approved") || t.ticket_status.equals("Denied")){
+            throw new CannotUpdateException();
+
         }
 
         ticketDao.updateTicketStatus(ticket_status, ticket_id);
         return true;
     }
-
-//    public void updateTicketStatus(int ticket_id, String ticket_status, String newTicketStatus) throws CannotUpdateException, TicketDoesNotExistException {
-//        Ticket t = ticketDao.getByTicketID(ticket_id);
-//
-//        if (t == null) {
-//            return;
-//        }
-//
-//        if (!ticket_status.equals("Pending")) {
-//            if(!newTicketStatus.equals("")){
-//                t.setTicket_status(newTicketStatus);
-//                System.out.println("That is a valid answer.");
-//            }
-//        } else {
-//            throw new CannotUpdateException();
-//        }
-//
-//        ticketDao.updateTicketStatus(ticket_status, ticket_id);
-//    }
 
     public Ticket filterByTicketStatus(String ticket_status) {
         List<Ticket> allTickets = ticketDao.viewAllSubmittedTickets();

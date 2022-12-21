@@ -1,8 +1,6 @@
 package com.revature.dao;
 
 import com.revature.exception.CannotUpdateException;
-import com.revature.exception.TicketDoesNotExistException;
-import com.revature.models.Employee;
 import com.revature.models.Ticket;
 import com.revature.models.TicketType;
 import com.revature.util.JDBCConnectionUTIL;
@@ -336,8 +334,8 @@ public class TicketDaoJDBC implements TicketDao {
             e.printStackTrace();
         }
 
-        return false;
 
+        return false;
     }
 
     @Override

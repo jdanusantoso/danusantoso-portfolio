@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.revature.exception.CannotUpdateException;
 import com.revature.exception.TicketDoesNotExistException;
-import com.revature.models.Employee;
 import com.revature.models.Ticket;
 
 public interface TicketDao {

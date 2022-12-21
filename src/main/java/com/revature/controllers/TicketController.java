@@ -119,24 +119,27 @@ public class TicketController {
                 ctx.status(403);
                 ctx.result("You must be logged as an manager in order to perform this action.");
                 return;
-            }
-*/
-            int ticket_id = Integer.parseInt(ctx.pathParam("id"));
-            System.out.println(ticket_id);
+            }*/
 
-            String ticket_status = ctx.body();
+        int ticket_id = Integer.parseInt(ctx.pathParam("id"));
+        System.out.println(ticket_id);
 
-            System.out.println(ticket_status);
+        String ticket_status = ctx.body();
 
-            if (ticketService.updateTicketStatus(ticket_status, ticket_id)) {
-                ctx.status(202);
-                ctx.result("Expense ticket reimbursement submission update success.");
-                System.out.println("Here");
-            } else {
-                ctx.status(406);
-                ctx.result("Expense ticket reimbursement submission update failed.");
-                System.out.println("Hey");
-            }
+        System.out.println(ticket_status);
+
+        if (ticketService.updateTicketStatus(ticket_id, ticket_status)) {
+            ctx.status(202);
+            ctx.result("Expense ticket reimbursement submission update success.");
+            System.out.println("Here");
+        } else {
+            ctx.status(406);
+            ctx.result("Expense ticket reimbursement submission update failed.");
+            System.out.println("Hey");
+        }
+
+/*
+/*
 /*
         }else{
             ctx.result("You must be logged in order to perform this action.");
