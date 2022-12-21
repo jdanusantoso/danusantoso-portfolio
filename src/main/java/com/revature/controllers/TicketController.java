@@ -110,7 +110,7 @@ public class TicketController {
     };
 
     public Handler updateTicketStatusHandler = (ctx) -> {
-    /*
+
         if(AuthController.ses != null){
 
             System.out.println(AuthController.ses.getAttribute("mUser_level"));
@@ -119,7 +119,7 @@ public class TicketController {
                 ctx.status(403);
                 ctx.result("You must be logged as an manager in order to perform this action.");
                 return;
-            }*/
+            }
 
         int ticket_id = Integer.parseInt(ctx.pathParam("id"));
         System.out.println(ticket_id);
@@ -137,15 +137,11 @@ public class TicketController {
             ctx.result("Expense ticket reimbursement submission update failed.");
             System.out.println("Hey");
         }
-
-/*
-/*
-/*
         }else{
             ctx.result("You must be logged in order to perform this action.");
             ctx.status(401);
 
-        }*/
+        }
     };
 
     public Handler viewAllPendingTicketsHandler = (ctx) -> {
