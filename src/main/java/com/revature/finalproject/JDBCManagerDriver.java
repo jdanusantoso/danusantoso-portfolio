@@ -119,7 +119,7 @@ public class JDBCManagerDriver {
                     String oldTicket_status = in.nextLine() + in.next();
                     System.out.println("Enter Approved or Denied");
                     String ticket_status = in.nextLine() + in.next();
-                    ticketService.updateTicketStatus(ticket_id, ticket_status);
+                    ticketService.updateTicketStatus(ticket_status, ticket_id);
                     break;
 
                 case 6:

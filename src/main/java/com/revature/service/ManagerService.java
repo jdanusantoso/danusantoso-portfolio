@@ -41,7 +41,7 @@ public class ManagerService {
         List<Manager> manager = managerDao.getAllManagers();
 
         for (Manager m : manager) {
-            if (m.getUsername().equals(username)) {
+            if (m.getUsername().equals(username) && m.getPassword().equals(password)) {
                 return m;
             }
         }

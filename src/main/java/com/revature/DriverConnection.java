@@ -47,6 +47,8 @@ public class DriverConnection {
 
         app.post("/managerLogin", ac.managerLoginHandler);
 
+        app.get("/userLogOut", ac.userLogOutHandler);
+
         EmployeeController ec = new EmployeeController();
 
         app.get("/verifyEmployeeUsername", ec.verifyEmployeeUsernameHandler);
@@ -79,15 +81,16 @@ public class DriverConnection {
 
         app.get("/viewAllEmployeeSubmittedTickets", tc.viewAllEmployeeSubmittedTicketsHandler);
 
-        app.get("/viewAllSubmittedTickets", tc.getTicketHandlerSubmitted);
+        app.get("/viewAllSubmittedTickets", tc.viewAllSubmittedTicketsHandler);
 
         app.patch("/updateTicketStatus/{id}", tc.updateTicketStatusHandler);
 
+        /*
         app.exception(CannotUpdateException.class, (e, updateTicketStatusHandler) -> {
             updateTicketStatusHandler.status(406);
             updateTicketStatusHandler.result("You are trying to update an unchangeable field.");
         });
-
+*/
         app.get("/viewAllPendingTickets", tc.viewAllPendingTicketsHandler);
 
     }

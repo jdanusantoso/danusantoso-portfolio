@@ -23,7 +23,7 @@ public class EmployeeController {
 
         Employee newE = gson.fromJson(body, Employee.class);
 
-        newE = employeeService.verifyEmployeeUsernames( newE.getEmployee_username());
+        newE = employeeService.employeeLoginByUsernamePassword(newE.getEmployee_username(), newE.getEmployee_password());
 
 
         System.out.println(newE);

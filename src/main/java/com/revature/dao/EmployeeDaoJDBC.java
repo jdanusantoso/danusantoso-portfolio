@@ -129,11 +129,6 @@ public class EmployeeDaoJDBC implements EmployeeDao {
 
             while(results.next()) {
                 employee = new Employee();
-
-//                    employee.setEmployee_id(results.getInt(1));
-//                    employee.setEmployee_first_name(results.getString(2));
-//                    employee.setEmployee_last_name(results.getString(3));
-//                    employee.setEmployee_email(results.getString(4));
                 employee.setEmployee_username(results.getString(5));
                 employee.setEmployee_password(results.getString(6));
             }
@@ -145,40 +140,8 @@ public class EmployeeDaoJDBC implements EmployeeDao {
         return employee;
     }
 
-    /*----------------------------------Not Used---------------------------------------*/
 
-    public Employee employeeLoginByUsername(String employee_username) throws EmployeeDoesNotExistException {
-
-        Employee employee = null;
-
-        try {
-
-            Connection connection = conUtil.getConnectionThroughENV();
-
-            String sql = "SELECT * FROM employee WHERE employee_username =? and employee_password = ?";
-            PreparedStatement prepared = connection.prepareStatement(sql);
-            prepared.setString(1, employee_username);
-
-            ResultSet results = prepared.executeQuery();
-
-            while(results.next()) {
-                employee = new Employee();
-
-                employee.setEmployee_id(results.getInt(1));
-                employee.setEmployee_first_name(results.getString(2));
-                employee.setEmployee_last_name(results.getString(3));
-                employee.setEmployee_username(results.getString(4));
-                employee.setEmployee_password(results.getString(5));
-            }
-
-        }catch( SQLException e) {
-            e.printStackTrace();
-        }
-
-        return employee;
-    }
-
-    }
+}
 
 
 

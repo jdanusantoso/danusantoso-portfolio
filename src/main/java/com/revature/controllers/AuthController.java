@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.revature.dao.EmployeeDaoJDBC;
 import com.revature.dao.ManagerDaoJDBC;
 import com.revature.dao.TicketDaoJDBC;
+import com.revature.exception.ManagerDoesNotExistException;
 import com.revature.models.Employee;
 import com.revature.models.Manager;
 import com.revature.service.EmployeeService;
@@ -52,7 +53,7 @@ public class AuthController {
 
             String userJSON = gson.toJson(empLoggedIn);
 
-            ctx.result("You are logged in.");
+            ctx.result("You are logged in as an employee.");
             //ctx.result(userJSON);
             ctx.status(202);
 
@@ -70,7 +71,12 @@ public class AuthController {
 
         Manager mLDTO = gson.fromJson(body, Manager.class);
 
-        Manager mLoggedIn = mDao.loginByUsernamePassword(mLDTO.getUsername(), mLDTO.getPassword());
+        Manager mLoggedIn = null;
+        try {
+            mLoggedIn = managerService.loginByUsernamePassword(mLDTO.getUsername(), mLDTO.getPassword());
+        } catch (ManagerDoesNotExistException e) {
+            throw new RuntimeException(e);
+        }
 
         if(mLoggedIn != null){
 
@@ -82,16 +88,25 @@ public class AuthController {
             ses.setAttribute("employee_email", mLoggedIn.getEmail());
             ses.setAttribute("employee_username", mLoggedIn.getUsername());
             ses.setAttribute("employee_password", mLoggedIn.getPassword());
-            ses.setAttribute("user_level", mLoggedIn.getmUser_level());
+            ses.setAttribute("mUser_level", mLoggedIn.getmUser_level());
 
             String userJSON = gson.toJson(mLoggedIn);
 
-            ctx.result(userJSON);
+            //ctx.result(userJSON);
+            ctx.result("You are logged in as a manager.");
             ctx.status(202);
 
         }else{
             ctx.status(401);
         }
+
+    };
+
+    public Handler userLogOutHandler = (ctx) -> {
+
+       ses.invalidate();
+
+
 
     };
 

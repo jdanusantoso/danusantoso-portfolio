@@ -21,20 +21,19 @@ public interface TicketDao {
 
     List<Ticket> viewAllSubmittedTickets();
 
+    Ticket getByTicketID(int ticket_id) throws TicketDoesNotExistException ;
+
     boolean updateTicketStatus (String ticket_status, int ticket_id) throws CannotUpdateException;
 
     List<Ticket> viewAllPendingTickets(String ticket_status);
 
-    /* --------------------------Unused Extra Methods-------------------------------- */
 
-    Ticket getByTicketID(int ticket_id) throws TicketDoesNotExistException ;
-    List<Ticket> viewAllEmployeeTickets(Employee E);
 
-    Ticket getByTicketSubmitter(String ticketSubmitter) ;
 
-    Ticket filterTicketsByStatus(String ticket_submitter, String ticket_status);
 
-    Ticket filterByTicketStatus(String ticket_status);
+
+
+
 
 
 

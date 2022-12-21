@@ -11,8 +11,6 @@ import com.revature.dao.TicketDao;
 import com.revature.models.Employee;
 import com.revature.models.Ticket;
 
-import static com.revature.controllers.AuthController.ses;
-
 public class TicketService {
 
     private TicketDao ticketDao;
@@ -41,27 +39,26 @@ public class TicketService {
 
         return t;
     }
+
     public List<Ticket> retrieveAllSubmittedTickets() {
 
         List<Ticket> allTickets = ticketDao.viewAllSubmittedTickets();
         List<Ticket> allSubmittedTickets = new ArrayList<>();
 
-        for(Ticket t: allTickets) {
-                allSubmittedTickets.add(t);
-            }
+        for (Ticket t : allTickets) {
+            allSubmittedTickets.add(t);
+        }
 
         return allSubmittedTickets;
 
-        }
-
-
+    }
 
 
     public Ticket getByTicketID(int ticket_id) throws TicketDoesNotExistException {
         List<Ticket> allTickets = ticketDao.viewAllSubmittedTickets();
 
-        for (Ticket t: allTickets){
-            if(t.getTicket_Id() == (ticket_id)) {
+        for (Ticket t : allTickets) {
+            if (t.getTicket_Id() == (ticket_id)) {
                 return t;
             }
 
@@ -71,20 +68,29 @@ public class TicketService {
     }
 
     public List<Ticket> viewAllEmployeeSubmittedTickets(String ticket_submitter) {
+        List<Ticket> allEmployeeTickets = ticketDao. viewAllEmployeeSubmittedTickets(ticket_submitter);
 
+        for (Ticket t: allEmployeeTickets){
+            allEmployeeTickets.add(t);
+            return allEmployeeTickets;
 
-        Employee employee = (Employee) AuthController.ses.getAttribute("user_level");
-        System.out.println(employee);
-
-        if(employee.equals("Employee")){
-            return ticketDao.viewAllEmployeeSubmittedTickets(ticket_submitter);
         }
+        return null;
+    }
 
+    public List<Ticket> viewAllSubmittedTickets() {
+        List<Ticket> allTickets = ticketDao. viewAllSubmittedTickets();
+
+        for (Ticket t: allTickets){
+                allTickets.add(t);
+                return allTickets;
+
+        }
         return null;
     }
 
 
-    public boolean updateTicketStatus(int ticket_id, String ticket_status) throws CannotUpdateException, TicketDoesNotExistException {
+    public boolean updateTicketStatus(String ticket_status, int ticket_id) throws CannotUpdateException, TicketDoesNotExistException {
 
         Ticket t = ticketDao.getByTicketID(ticket_id);
 
@@ -92,15 +98,19 @@ public class TicketService {
             return false;
         }
 
-        if (ticket_status.equals("Pending")) {
-                t.setTicket_status(ticket_status);
-                System.out.println("That is a valid answer.");
+        if (ticket_status.equals("Approved") || ticket_status.equals("Denied")) {
+            //throw new CannotUpdateException();
+            return false;
+
+
+
         } else {
-            throw new CannotUpdateException();
+            t.setTicket_status(ticket_status);
+            System.out.println("That is a valid answer.");
         }
 
         ticketDao.updateTicketStatus(ticket_status, ticket_id);
-        return false;
+        return true;
     }
 
 //    public void updateTicketStatus(int ticket_id, String ticket_status, String newTicketStatus) throws CannotUpdateException, TicketDoesNotExistException {
@@ -125,8 +135,8 @@ public class TicketService {
     public Ticket filterByTicketStatus(String ticket_status) {
         List<Ticket> allTickets = ticketDao.viewAllSubmittedTickets();
 
-        for (Ticket t: allTickets){
-            if(t.getticket_status().equals(ticket_status)) {
+        for (Ticket t : allTickets) {
+            if (t.getticket_status().equals(ticket_status)) {
                 System.out.println(t);
             }
 
@@ -136,71 +146,24 @@ public class TicketService {
     }
 
 
-
-//    public List<Ticket> viewAllPendingTickets(String ticket_status) {
-//        List<Ticket> allTickets = ticketDao.viewAllPendingTickets(ticket_status);
-//
-//        for (Ticket t: allTickets){
-//            if (t.getticket_status().equals(ticket_status)){
-//            return t;
-//            }
-//
-//        }
-//        return null;
-//    }
-
-
-    /*------------------------NOT USED---------------------------------*/
-
-/*
     public List<Ticket> viewAllPendingTickets(String ticket_status) {
-        return ticketDao.viewAllPendingTickets(ticket_status);
-    }
-
-
-    public List<Ticket> viewAllEmployeeTickets(Employee e) {
-        List<Ticket> allTickets = ticketDao.viewAllSubmittedTickets();
-        List<Ticket> employeeTickets = new ArrayList<>();
+        List<Ticket> allTickets = ticketDao.viewAllPendingTickets(ticket_status);
 
         for (Ticket t: allTickets){
-            if(t.getticket_submitter() == (e.getEmployee_first_name() + e.getEmployee_last_name())) {
-                employeeTickets.add(t);
+            if (t.getticket_status().equals("Pending")){
+                allTickets.add(t);
+                return allTickets;
             }
-
-
-        }
-        return employeeTickets;
-    }
-
-
-
-    public Ticket filterTicketsByStatus (String ticket_submitter, String ticket_status) {
-                return ticketDao.filterTicketsByStatus(ticket_submitter, ticket_status);
-
-}
-
-    public Ticket filterByTicketStatus (String ticket_status) {
-        List<Ticket> allTickets = ticketDao.viewAllSubmittedTickets();
-
-        for (Ticket t: allTickets){
-            if(t.getticket_status().equals(ticket_status)) {
-                return t;
-            }
-
 
         }
         return null;
     }
 
-//
-//
-//
-//
-//
-//    public Ticket getByTicketSubmitter(String ticketSubmitter) {
-//        return ticketDao.getByTicketSubmitter(ticketSubmitter);
-//    }
-*/
+
 }
+
+
+
+
 
 

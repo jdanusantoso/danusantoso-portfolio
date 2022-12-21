@@ -57,7 +57,7 @@ public class TicketDaoJDBC implements TicketDao {
 
     }
 
-
+/*
     @Override
     public List<Ticket> viewAllEmployeeSubmittedTickets(String ticket_submitter) {
         List<Ticket> ticket = new ArrayList<>();
@@ -65,7 +65,7 @@ public class TicketDaoJDBC implements TicketDao {
         try {
             Connection connection = conUtil.getConnectionThroughENV();
 
-            String sql = "SELECT * FROM tickets";
+            String sql = "SELECT * FROM tickets WHERE ticket_submitter = ?";
 
             PreparedStatement prepared = connection.prepareStatement(sql);
 
@@ -108,55 +108,8 @@ public class TicketDaoJDBC implements TicketDao {
 
     }
 
-    @Override
-    public List<Ticket> viewAllEmployeeTickets(Employee E) {
-        List<Ticket> ticket = new ArrayList<>();
 
-        try {
-            Connection connection = conUtil.getConnectionThroughENV();
-
-            String sql = "SELECT * FROM tickets";
-
-            PreparedStatement prepared = connection.prepareStatement(sql);
-
-            ResultSet results = prepared.executeQuery();
-
-            while(results.next()) {
-
-                TicketType expenseType;
-
-                switch(results.getInt(8)) {
-                    case 1:
-                        expenseType = TicketType.Food;
-                        break;
-                    case 2:
-                        expenseType = TicketType.Lodging;
-                        break;
-                    case 3:
-                        expenseType = TicketType.Travel;
-                        break;
-                    case 4:
-                        expenseType = TicketType.Professional_Development;
-                        break;
-                    default:
-                        expenseType = TicketType.Other;
-                        break;
-                }
-
-
-
-                ticket.add(new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
-                        results.getString(5), results.getInt(6), results.getString(7), results.getInt(8) ));
-            }
-
-        }
-
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return ticket;
-
-    }
+ */
 
     @Override
     public List<Ticket> viewAllSubmittedTickets() {
@@ -165,9 +118,10 @@ public class TicketDaoJDBC implements TicketDao {
         try {
             Connection connection = conUtil.getConnectionThroughENV();
 
-            String sql = "SELECT * FROM tickets where ticket_submitter = ?";
+            String sql = "SELECT * FROM tickets";
 
             PreparedStatement prepared = connection.prepareStatement(sql);
+
 
             ResultSet results = prepared.executeQuery();
 
@@ -207,7 +161,7 @@ public class TicketDaoJDBC implements TicketDao {
         return ticket;
 
     }
-/*
+
     @Override
     public List<Ticket> viewAllEmployeeSubmittedTickets(String ticket_submitter) {
         List<Ticket> ticket = new ArrayList<>();
@@ -258,7 +212,7 @@ public class TicketDaoJDBC implements TicketDao {
         return ticket;
 
     }
-*/
+
 
 
 //    @Override
@@ -310,6 +264,57 @@ public class TicketDaoJDBC implements TicketDao {
 //        return ticket;
 //
 //    }
+
+    @Override
+    public Ticket getByTicketID(int ticket_id) {
+
+        Ticket ticket = null;
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM tickets WHERE ticket_id = ?";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+            prepared.setInt(1, ticket_id);
+
+            ResultSet results = prepared.executeQuery();
+
+            while(results.next()) {
+
+                TicketType Expensetype;
+                switch(results.getInt(8)) {
+                    case 1:
+                        Expensetype = TicketType.Food;
+                        break;
+                    case 2:
+                        Expensetype = TicketType.Lodging;
+                        break;
+                    case 3:
+                        Expensetype = TicketType.Travel;
+                        break;
+                    case 4:
+                        Expensetype = TicketType.Professional_Development;
+                        break;
+                    default:
+                        Expensetype = TicketType.Other;
+                        break;
+                }
+
+                ticket = new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
+                        results.getString(5), results.getInt(6), results.getString(7));
+
+
+            }
+
+        }
+
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return ticket;
+
+    }
 
     @Override
     public boolean updateTicketStatus (String ticket_status, int ticket_id) throws CannotUpdateException {
@@ -383,219 +388,6 @@ public class TicketDaoJDBC implements TicketDao {
             e.printStackTrace();
         }
         return ticket;
-
-    }
-
-
-
-    /*-----------------------------Unused Methods------------------------------------*/
-
-    @Override
-    public Ticket getByTicketID(int ticket_id) {
-
-        Ticket ticket = null;
-
-        try {
-            Connection connection = conUtil.getConnectionThroughENV();
-
-            String sql = "SELECT * FROM tickets WHERE ticket_id = ?";
-
-            PreparedStatement prepared = connection.prepareStatement(sql);
-            prepared.setInt(1, ticket_id);
-
-            ResultSet results = prepared.executeQuery();
-
-            while(results.next()) {
-
-                TicketType Expensetype;
-                switch(results.getInt(8)) {
-                    case 1:
-                        Expensetype = TicketType.Food;
-                        break;
-                    case 2:
-                        Expensetype = TicketType.Lodging;
-                        break;
-                    case 3:
-                        Expensetype = TicketType.Travel;
-                        break;
-                    case 4:
-                        Expensetype = TicketType.Professional_Development;
-                        break;
-                    default:
-                        Expensetype = TicketType.Other;
-                        break;
-                }
-
-                ticket = new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
-                        results.getString(5), results.getInt(6), results.getString(7));
-
-
-            }
-
-        }
-
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return ticket;
-
-    }
-
-    @Override
-    public Ticket getByTicketSubmitter(String ticketSubmitter) {
-
-        Ticket ticket = null;
-
-        try {
-            Connection connection = conUtil.getConnectionThroughENV();
-
-            String sql = "SELECT * FROM tickets WHERE ticket_submitter = ?";
-
-            PreparedStatement prepared = connection.prepareStatement(sql);
-            prepared.setString(1, ticketSubmitter);
-
-            ResultSet results = prepared.executeQuery();
-
-            while(results.next()) {
-
-                TicketType Expensetype;
-                switch(results.getInt(8)) {
-                    case 1:
-                        Expensetype = TicketType.Food;
-                        break;
-                    case 2:
-                        Expensetype = TicketType.Lodging;
-                        break;
-                    case 3:
-                        Expensetype = TicketType.Travel;
-                        break;
-                    case 4:
-                        Expensetype = TicketType.Professional_Development;
-                        break;
-                    default:
-                        Expensetype = TicketType.Other;
-                        break;
-                }
-
-                ticket = new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
-                        results.getString(5), results.getInt(6), results.getString(7));
-            }
-
-        }
-
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return ticket;
-
-    }
-
-    @Override
-    public Ticket filterTicketsByStatus(String ticket_submitter, String ticket_status) {
-
-        Ticket ticket = null;
-
-        try {
-            Connection connection = conUtil.getConnectionThroughENV();
-
-            String sql = "SELECT * FROM tickets WHERE ticket_submitter = ?, ticket_status = ?";
-
-            PreparedStatement prepared = connection.prepareStatement(sql);
-            prepared.setString(1, ticket_submitter);
-            prepared.setString(2, ticket_status);
-
-
-            ResultSet results = prepared.executeQuery();
-
-            while(results.next()) {
-
-                TicketType expenseType;
-
-                switch(results.getInt(8)) {
-                    case 1:
-                        expenseType = TicketType.Food;
-                        break;
-                    case 2:
-                        expenseType = TicketType.Lodging;
-                        break;
-                    case 3:
-                        expenseType = TicketType.Travel;
-                        break;
-                    case 4:
-                        expenseType = TicketType.Professional_Development;
-                        break;
-                    default:
-                        expenseType = TicketType.Other;
-                        break;
-                }
-
-
-
-                ticket = new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
-                        results.getString(5), results.getInt(6), results.getString(7));
-            }
-
-        }
-
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return (Ticket) ticket;
-
-    }
-
-    @Override
-    public Ticket filterByTicketStatus(String ticket_status) {
-
-        Ticket ticket = null;
-
-        try {
-            Connection connection = conUtil.getConnectionThroughENV();
-
-            String sql = "SELECT * FROM tickets WHERE ticket_status = ?";
-
-            PreparedStatement prepared = connection.prepareStatement(sql);
-            prepared.setString(1, ticket_status);
-
-
-            ResultSet results = prepared.executeQuery();
-
-            while(results.next()) {
-
-                TicketType expenseType;
-
-                switch(results.getInt(8)) {
-                    case 1:
-                        expenseType = TicketType.Food;
-                        break;
-                    case 2:
-                        expenseType = TicketType.Lodging;
-                        break;
-                    case 3:
-                        expenseType = TicketType.Travel;
-                        break;
-                    case 4:
-                        expenseType = TicketType.Professional_Development;
-                        break;
-                    default:
-                        expenseType = TicketType.Other;
-                        break;
-                }
-
-
-
-                ticket = new Ticket(results.getString(1), results.getInt(2), results.getString(3), results.getDouble(4),
-                        results.getString(5), results.getInt(6), results.getString(7));
-
-                return ticket;
-            }
-
-        }
-
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
 
     }
 

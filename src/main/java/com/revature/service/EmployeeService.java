@@ -74,7 +74,7 @@ public class EmployeeService {
         List<Employee> employee = employeeDao.getAllEmployees();
 
         for (Employee e : employee) {
-            if (e.getEmployee_username().equals(employee_username)) {
+            if (e.getEmployee_username().equals(employee_username) && e.getEmployee_password().equals(employee_password)) {
                 return e;
             }
         }
