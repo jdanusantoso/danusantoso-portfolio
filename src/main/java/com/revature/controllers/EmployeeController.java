@@ -55,9 +55,6 @@ public class EmployeeController {
         if(newE != null){
             ctx.status(201);
             ctx.result(body); //Send back the employee
-
-
-
         }
 
         else{

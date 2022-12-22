@@ -6,6 +6,7 @@ import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.models.Employee;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeService {
@@ -32,7 +33,7 @@ public class EmployeeService {
 
         for (Employee e : employee) {
             if (!e.getEmployee_username().equals(employee_username)) {
-                System.out.println(employee_username);
+                System.out.println(e.getEmployee_username() + " " + employee_username);;
                 System.out.println(e.getEmployee_username());
                 return e;
             }else{
@@ -47,14 +48,17 @@ public class EmployeeService {
     public Employee createNewEmployee(String employee_first_name, String employee_last_name, String employee_email,
                                       String employee_username,  String employee_password, String user_level) throws UsernameAlreadyExistsException {
 
-        List<Employee> employee = employeeDao.getAllEmployees();
+        ArrayList<Employee> employee = employeeDao.getAllEmployees();
+
 
         for (Employee e : employee) {
-            if (!e.getEmployee_username().equals(employee_username)) {
-                System.out.println(e.getEmployee_username() + " " + employee_username);
-                e = new Employee(0, employee_first_name, employee_last_name, employee_email, employee_username, employee_password, user_level);
+
+            if (!employee.contains(employee_username)) {
+
+                e = new Employee(employee_first_name, employee_last_name, employee_email, employee_username, employee_password, user_level);
                 employeeDao.createNewEmployee(e);
                 return e;
+
             }else {
                 return null;
             }

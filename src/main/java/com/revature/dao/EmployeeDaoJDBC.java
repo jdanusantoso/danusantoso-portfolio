@@ -3,8 +3,6 @@ package com.revature.dao;
 import com.revature.exception.EmployeeDoesNotExistException;
 import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.models.Employee;
-import com.revature.models.Ticket;
-import com.revature.models.TicketType;
 import com.revature.util.JDBCConnectionUTIL;
 
 import java.sql.Connection;
@@ -56,7 +54,7 @@ public class EmployeeDaoJDBC implements EmployeeDao {
     }
 
     @Override
-    public List<Employee> getAllEmployees() {
+    public ArrayList<Employee> getAllEmployees() {
         List<Employee> employee = new ArrayList<>();
 
         try {
@@ -79,8 +77,8 @@ public class EmployeeDaoJDBC implements EmployeeDao {
         catch(SQLException e) {
             e.printStackTrace();
         }
-        return employee;
 
+        return (ArrayList<Employee>) employee;
     }
 
     @Override

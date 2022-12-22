@@ -1,8 +1,5 @@
 package com.revature.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Employee {
 
     private int employee_id;
@@ -17,6 +14,15 @@ public class Employee {
 
         //TODO make an all args when we have completed the class
 
+    }
+
+    public Employee(String employee_first_name, String employee_last_name, String employee_email, String employee_username, String employee_password, String user_level) {
+        this.employee_first_name = employee_first_name;
+        this.employee_last_name = employee_last_name;
+        this.employee_email = employee_email;
+        this.employee_username = employee_username;
+        this.employee_password = employee_password;
+        this.user_level = user_level;
     }
 
     public Employee(int employee_id, String employee_first_name, String employee_last_name, String employee_email, String employee_username, String employee_password, String user_level) {
@@ -97,6 +103,10 @@ public class Employee {
                 ", user_level='" + user_level + '\'' +
                 '}';
     }
+
+
+
+
 }
 
 
