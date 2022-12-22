@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import com.revature.exception.CannotUpdateException;
 import com.revature.exception.EmployeeDoesNotExistException;
 import com.revature.dao.EmployeeDao;
 import com.revature.exception.UsernameAlreadyExistsException;
@@ -81,5 +82,69 @@ public class EmployeeService {
         //You may want to instead throw an exception
         throw new EmployeeDoesNotExistException();
     }
+
+    public Employee getByEmployeeID(int employee_id) throws EmployeeDoesNotExistException {
+        List<Employee> allEmployees = employeeDao.getAllEmployees();
+
+        for (Employee e : allEmployees) {
+            if (e.getEmployee_id()== (employee_id)) {
+                return e;
+            }
+
+
+        }
+        throw new EmployeeDoesNotExistException();
+    }
+
+    public boolean updateEmployeeLastName(String employee_last_name, int employee_id) throws EmployeeDoesNotExistException, CannotUpdateException {
+        Employee e = employeeDao.getByEmployeeId(employee_id);
+
+        if (e == null) {
+            return false;
+        }
+
+        if (employee_last_name.isEmpty()){
+            throw new CannotUpdateException();
+
+        } else {
+
+            if (!employee_last_name.isEmpty()) {
+                e.setEmployee_last_name(employee_last_name);
+                System.out.println("Your last name has been updated.");
+            }
+
+        }
+
+
+        employeeDao.updateEmployeeLastName(employee_last_name, employee_id);
+        return true;
+
+    }
+
+    public boolean updateEmployeeEmail(String employee_email, int employee_id) throws EmployeeDoesNotExistException, CannotUpdateException {
+        Employee e = employeeDao.getByEmployeeId(employee_id);
+
+        if (e == null) {
+            return false;
+        }
+
+        if (employee_email.isEmpty()) {
+            throw new CannotUpdateException();
+
+        } else {
+
+            if (!employee_email.isEmpty()) {
+                e.setEmployee_email(employee_email);
+                System.out.println("Your email has been updated.");
+            }
+
+        }
+
+
+        employeeDao.updateEmployeeEmail(employee_email, employee_id);
+        return true;
+
+    }
+
 
 }

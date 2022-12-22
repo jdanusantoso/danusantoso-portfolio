@@ -54,6 +54,36 @@ public class EmployeeDaoJDBC implements EmployeeDao {
     }
 
     @Override
+    public Employee getByEmployeeId(int employee_id) throws EmployeeDoesNotExistException {
+
+        Employee employee = null;
+
+        try {
+
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM employee WHERE employee_id = ?";
+            PreparedStatement prepared = connection.prepareStatement(sql);
+            prepared.setInt(1, employee_id);
+
+            ResultSet results = prepared.executeQuery();
+
+            while (results.next()) {
+                employee = new Employee();
+                employee.setEmployee_id(results.getInt(1));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return employee;
+
+
+    }
+
+    @Override
     public ArrayList<Employee> getAllEmployees() {
         List<Employee> employee = new ArrayList<>();
 
@@ -138,6 +168,56 @@ public class EmployeeDaoJDBC implements EmployeeDao {
         return employee;
 
 
+    }
+
+    @Override
+    public boolean updateEmployeeLastName(String employee_last_name, int employee_id) {
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "UPDATE employee SET employee_last_name = ? WHERE employee_ID =?";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+
+            prepared.setString(1,employee_last_name);
+            prepared.setInt(2, employee_id);
+
+            prepared.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return false;
+    }
+
+    @Override
+    public boolean updateEmployeeEmail(String employee_email, int employee_id) {
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "UPDATE employee SET employee_email = ?, WHERE employee_ID =?";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+
+            prepared.setString(1, employee_email);
+            prepared.setInt(2, employee_id);
+
+            prepared.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return false;
     }
 
 

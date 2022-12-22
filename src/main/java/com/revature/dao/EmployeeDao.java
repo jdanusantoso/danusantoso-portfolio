@@ -15,4 +15,10 @@ public interface EmployeeDao {
 
     Employee employeeLoginByUsernamePassword(String employee_username, String employee_password) throws EmployeeDoesNotExistException;
 
+    Employee getByEmployeeId(int employee_id) throws EmployeeDoesNotExistException;
+
+    boolean updateEmployeeLastName(String employee_last_name, int employee_id);
+
+    boolean updateEmployeeEmail(String employee_email, int employee_id);
+
 }

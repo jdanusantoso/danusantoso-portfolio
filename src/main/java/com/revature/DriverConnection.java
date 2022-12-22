@@ -4,10 +4,7 @@ import com.revature.controllers.AuthController;
 import com.revature.controllers.EmployeeController;
 import com.revature.controllers.ManagerController;
 import com.revature.controllers.TicketController;
-import com.revature.exception.CannotUpdateException;
-import com.revature.exception.ManagerDoesNotExistException;
-import com.revature.exception.MissingRequiredTicketInformationException;
-import com.revature.exception.UsernameAlreadyExistsException;
+import com.revature.exception.*;
 import com.revature.util.JDBCConnectionUTIL;
 import io.javalin.Javalin;
 
@@ -74,6 +71,22 @@ public class DriverConnection {
             createNewEmployee.result("you are trying to input a username that already exists. Please choose another.");
         });
 
+        app.patch("/updateEmployeeLastName/{id}", ec.updateEmployeeLastNameHandler);
+
+
+        app.exception(UnauthorizedBlankResponseException.class, (e, updateEmployeeLastNameHandler) -> {
+            updateEmployeeLastNameHandler.status(406);
+            updateEmployeeLastNameHandler.result("You are trying to input a response that is outside the parameters.");
+        });
+
+        app.patch("/updateEmployeeEmail/{id}", ec.updateEmployeeEmailHandler);
+
+
+        app.exception(UnauthorizedBlankResponseException.class, (e, updateEmployeeEmailHandler) -> {
+            updateEmployeeEmailHandler.status(406);
+            updateEmployeeEmailHandler.result("You are trying to input a response that is outside the parameters.");
+        });
+
 
         ManagerController mc = new ManagerController();
 
@@ -108,4 +121,7 @@ public class DriverConnection {
         app.get("/viewAllPendingTickets", tc.viewAllPendingTicketsHandler);
 
     }
+
+
+
 }
