@@ -201,7 +201,7 @@ public class EmployeeDaoJDBC implements EmployeeDao {
         try {
             Connection connection = conUtil.getConnectionThroughENV();
 
-            String sql = "UPDATE employee SET employee_email = ?, WHERE employee_ID =?";
+            String sql = "UPDATE employee SET employee_email = ? WHERE employee_ID =?";
 
             PreparedStatement prepared = connection.prepareStatement(sql);
 
@@ -219,6 +219,7 @@ public class EmployeeDaoJDBC implements EmployeeDao {
 
         return false;
     }
+
 
 
 }

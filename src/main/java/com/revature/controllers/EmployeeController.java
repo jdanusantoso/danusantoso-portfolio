@@ -8,6 +8,8 @@ import com.revature.service.EmployeeService;
 import com.revature.service.TicketService;
 import io.javalin.http.Handler;
 
+import java.util.List;
+
 public class EmployeeController {
 
     private static EmployeeService employeeService = new EmployeeService(new EmployeeDaoJDBC(), new TicketService(new TicketDaoJDBC()));
@@ -70,18 +72,24 @@ public class EmployeeController {
             System.out.println(AuthController.ses.getAttribute("user_level"));
             System.out.println(AuthController.ses.getAttribute("employee_id"));
 
-            if(AuthController.ses.getAttribute("employee_id") == null){
+            if(AuthController.ses.getAttribute("user_level") == null){
                 ctx.status(403);
-                ctx.result("You must be logged as an manager in order to perform this action.");
+                ctx.result("You must be logged as an employee in order to perform this action.");
                 return;
             }
 
-            int ticket_id = Integer.parseInt(ctx.pathParam("id"));
-            System.out.println(ticket_id);
+            if(AuthController.ses.getAttribute("employee_id") == null){
+                ctx.status(403);
+                ctx.result("You are not authorized to perform this action.");
+                return;
+            }
+
+            int employee_id = Integer.parseInt(ctx.pathParam("id"));
+            System.out.println(employee_id);
 
             String employee_last_name = ctx.body();
 
-            if (employeeService.updateEmployeeLastName(employee_last_name, ticket_id)) {
+            if (employeeService.updateEmployeeLastName(employee_last_name, employee_id)) {
                 ctx.status(202);
                 ctx.result("Employee information update success.");
 
@@ -104,19 +112,25 @@ public class EmployeeController {
             System.out.println(AuthController.ses.getAttribute("user_level"));
             System.out.println(AuthController.ses.getAttribute("employee_id"));
 
-            if(AuthController.ses.getAttribute("employee_id") == null){
+            if(AuthController.ses.getAttribute("user_level") == null){
                 ctx.status(403);
-                ctx.result("You must be logged as an manager in order to perform this action.");
+                ctx.result("You must be logged as an employee in order to perform this action.");
                 return;
             }
 
-            int ticket_id = Integer.parseInt(ctx.pathParam("id"));
-            System.out.println(ticket_id);
+            if(AuthController.ses.getAttribute("employee_id") == null){
+                ctx.status(403);
+                ctx.result("You are not authorized to perform this action.");
+                return;
+            }
+
+            int employee_id = Integer.parseInt(ctx.pathParam("id"));
+            System.out.println(employee_id);
 
             String employee_email = ctx.body();
 
 
-            if (employeeService.updateEmployeeEmail(employee_email, ticket_id)) {
+            if (employeeService.updateEmployeeEmail(employee_email, employee_id)) {
                 ctx.status(202);
                 ctx.result("Employee information update success.");
 
@@ -131,8 +145,5 @@ public class EmployeeController {
         }
 
     };
-
-
-
 
 }
