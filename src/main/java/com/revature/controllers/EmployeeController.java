@@ -81,10 +81,6 @@ public class EmployeeController {
 
             String employee_last_name = ctx.body();
 
-            String employee_email = ctx.body();
-
-//        System.out.println(ticket_status);
-
             if (employeeService.updateEmployeeLastName(employee_last_name, ticket_id)) {
                 ctx.status(202);
                 ctx.result("Employee information update success.");
@@ -117,11 +113,8 @@ public class EmployeeController {
             int ticket_id = Integer.parseInt(ctx.pathParam("id"));
             System.out.println(ticket_id);
 
-            String employee_last_name = ctx.body();
-
             String employee_email = ctx.body();
 
-//        System.out.println(ticket_status);
 
             if (employeeService.updateEmployeeEmail(employee_email, ticket_id)) {
                 ctx.status(202);
