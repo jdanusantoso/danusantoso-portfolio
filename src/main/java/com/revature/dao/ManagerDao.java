@@ -1,8 +1,6 @@
 package com.revature.dao;
 
-import com.revature.exception.ManagerDoesNotExistException;
 import com.revature.exception.UsernameAlreadyExistsException;
-import com.revature.models.Employee;
 import com.revature.models.Manager;
 
 import java.sql.SQLException;
@@ -14,7 +12,7 @@ public interface ManagerDao {
 
     List<Manager> getAllManagers();
 
-    Manager loginByUsernamePassword (String username, String Password) throws ManagerDoesNotExistException;
+    Manager loginByUsernamePassword (String username, String Password) ;
 
 
 

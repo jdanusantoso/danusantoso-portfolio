@@ -5,7 +5,6 @@ package com.revature.service;
 import com.revature.dao.ManagerDao;
 import com.revature.exception.ManagerDoesNotExistException;
 import com.revature.exception.UsernameAlreadyExistsException;
-import com.revature.models.Employee;
 import com.revature.models.Manager;
 
 import java.sql.SQLException;
@@ -37,7 +36,7 @@ public class ManagerService {
     }
 
     public Manager createNewManager(String employee_first_Name, String employee_last_Name, String email, String username,
-                                    String password, String user_Level, int employee_Id_FK) throws SQLException, UsernameAlreadyExistsException, ManagerDoesNotExistException {
+                                    String password, String user_Level, int employee_Id_FK) throws SQLException, UsernameAlreadyExistsException {
 
         List<Manager> manager = managerDao.verifyManagerUsernames(username);
 

@@ -1,5 +1,6 @@
 package com.revature.finalproject;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,7 +26,7 @@ public class JDBCEmployeeDriver {
 
 
 
-    public static void main(String[] args) throws MissingRequiredTicketInformationException, EmployeeDoesNotExistException, UsernameAlreadyExistsException {
+    public static void main(String[] args) throws MissingRequiredTicketInformationException, EmployeeDoesNotExistException, UsernameAlreadyExistsException, SQLException {
 
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
@@ -193,7 +194,7 @@ public class JDBCEmployeeDriver {
 
         input.close();
 
-        System.gc();
+
 
     }
 

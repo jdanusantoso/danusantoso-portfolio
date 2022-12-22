@@ -91,12 +91,7 @@ public class AuthController {
 
     };
 
-    public Handler userLogOutHandler = (ctx) -> {
-
-       ses.invalidate();
-
 
 
     };
 
-}

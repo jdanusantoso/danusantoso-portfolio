@@ -25,7 +25,7 @@ public class JDBCManagerDriver {
 
 
 
-    public static void main(String[] args) throws TicketDoesNotExistException, UnauthorizedResponseException, CannotUpdateException, ManagerDoesNotExistException, SQLException, UsernameAlreadyExistsException {
+    public static void main(String[] args) throws TicketDoesNotExistException, CannotUpdateException, ManagerDoesNotExistException, SQLException, UsernameAlreadyExistsException {
 
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
@@ -84,12 +84,8 @@ public class JDBCManagerDriver {
                     username = in.nextLine();
                     System.out.print("Please type in your password: ");
                     password = in.nextLine();
-                    try {
-                        loggedIn = managerService.loginByUsernamePassword(username, password);
-                        System.out.println("Welcome in: " + loggedIn.getUsername());
-                    }catch(ManagerDoesNotExistException ex) {
-                        throw new ManagerDoesNotExistException();
-                    }
+                    loggedIn = managerService.loginByUsernamePassword(username, password);
+                    System.out.println("Welcome in: " + loggedIn.getUsername());
 
                     break;
 

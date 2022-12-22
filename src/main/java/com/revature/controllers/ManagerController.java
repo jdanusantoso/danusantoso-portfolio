@@ -1,16 +1,6 @@
-package com.revature.controllers;
+//package com.revature.controllers;
 
-import com.google.gson.Gson;
-import com.revature.dao.ManagerDaoJDBC;
-import com.revature.dao.TicketDaoJDBC;
-import com.revature.exception.ManagerDoesNotExistException;
-import com.revature.models.Employee;
-import com.revature.models.Manager;
-import com.revature.service.ManagerService;
-import com.revature.service.TicketService;
-import io.javalin.http.Handler;
-
-public class ManagerController {
+/*public class ManagerController {
 
     private static ManagerService managerService = new ManagerService(new ManagerDaoJDBC(), new TicketService(new TicketDaoJDBC()));
 
@@ -48,3 +38,4 @@ public class ManagerController {
     };
 
 }
+*/

@@ -17,7 +17,7 @@ public class EmployeeDaoJDBC implements EmployeeDao {
         JDBCConnectionUTIL conUtil = JDBCConnectionUTIL.getInstance();
 
     @Override
-    public Employee createNewEmployee(Employee e) throws UsernameAlreadyExistsException{
+    public Employee createNewEmployee(Employee e){
         try {
 
             Connection connection = conUtil.getConnectionThroughENV();
@@ -40,7 +40,7 @@ public class EmployeeDaoJDBC implements EmployeeDao {
             prepared.setString(6, e.getUser_level());
 
 
-            prepared.execute();
+            prepared.executeUpdate();
 
             return e;
 

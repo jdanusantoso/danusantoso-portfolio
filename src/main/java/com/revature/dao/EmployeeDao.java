@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface EmployeeDao {
     List<Employee> verifyEmployeeUsernames(String employeeUsername) throws UsernameAlreadyExistsException;
-    Employee createNewEmployee(Employee e) throws UsernameAlreadyExistsException;
+    Employee createNewEmployee(Employee e);
 
     ArrayList<Employee> getAllEmployees();
 
