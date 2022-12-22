@@ -63,28 +63,5 @@ public class EmployeeController {
 
     };
 
-/*
-    public Handler createNewEmployee = (ctx) -> {
 
-        String body = ctx.body();
-
-        Gson gson = new Gson();
-
-        Employee newE = gson.fromJson(body, Employee.class);
-
-        newE = employeeService.createNewEmployee(newE.getEmployee_first_name(), newE.getEmployee_last_name(), newE.getEmployee_email(), newE.getEmployee_username(), newE.getEmployee_password(), newE.getUser_level());
-
-        System.out.println(newE);
-        if(newE != null){
-            ctx.status(201);
-            ctx.result(body); //Send back the employee
-        }
-
-        else{
-            ctx.status(406);
-            ctx.result("You are trying to input a username that already exists. Please choose another.");
-        }
-
-    };
-*/
 }

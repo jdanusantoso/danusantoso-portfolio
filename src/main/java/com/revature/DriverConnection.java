@@ -2,8 +2,10 @@ package com.revature;
 
 import com.revature.controllers.AuthController;
 import com.revature.controllers.EmployeeController;
+import com.revature.controllers.ManagerController;
 import com.revature.controllers.TicketController;
 import com.revature.exception.CannotUpdateException;
+import com.revature.exception.ManagerDoesNotExistException;
 import com.revature.exception.MissingRequiredTicketInformationException;
 import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.util.JDBCConnectionUTIL;
@@ -73,8 +75,14 @@ public class DriverConnection {
         });
 
 
-        //ManagerController mc = new ManagerController();
+        ManagerController mc = new ManagerController();
 
+        app.post("/createNewManager", mc.createNewManager);
+
+        app.exception(ManagerDoesNotExistException.class, (e, createNewManager) -> {
+            createNewManager.status(406);
+            createNewManager.result("The manager that is trying to login does not have an existing username and password.");
+        });
 
         TicketController tc = new TicketController();
 

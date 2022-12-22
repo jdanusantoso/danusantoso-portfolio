@@ -19,9 +19,9 @@ public class TicketController {
 
         if(AuthController.ses != null){
 
-            System.out.println(AuthController.ses.getAttribute("user_level"));
+            System.out.println(AuthController.ses.getAttribute("mUser_level"));
 
-            if(AuthController.ses.getAttribute("user_level") == null){
+            if(AuthController.ses.getAttribute("mUser_level") == null){
                 ctx.status(403);
                 ctx.result("You must be logged as an employee in order to perform this action.");
                 return;
@@ -101,7 +101,7 @@ public class TicketController {
             ctx.status(202);
 
         }else{
-            ctx.result("You must be logged in order to perform this action.");
+            ctx.result("You must be logged in as a manager in order to perform this action.");
             ctx.status(401);
         }
     };

@@ -71,12 +71,6 @@ public class AuthController {
 
             ses = ctx.req.getSession();
 
-            ses.setAttribute("manager_id", mLoggedIn.getManager_Id());
-            ses.setAttribute("employee_first_name", mLoggedIn.getEmployee_firstName());
-            ses.setAttribute("employee_last_name", mLoggedIn.getEmployee_last_Name());
-            ses.setAttribute("employee_email", mLoggedIn.getEmail());
-            ses.setAttribute("employee_username", mLoggedIn.getUsername());
-            ses.setAttribute("employee_password", mLoggedIn.getPassword());
             ses.setAttribute("mUser_level", mLoggedIn.getmUser_level());
 
             String userJSON = gson.toJson(mLoggedIn);
