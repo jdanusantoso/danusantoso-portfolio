@@ -1,9 +1,11 @@
 package com.revature.dao;
 
+import com.google.gson.Gson;
 import com.revature.exception.EmployeeDoesNotExistException;
 import com.revature.exception.UsernameAlreadyExistsException;
 import com.revature.models.Employee;
 import com.revature.util.JDBCConnectionUTIL;
+import io.javalin.http.Handler;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -218,6 +220,33 @@ public class EmployeeDaoJDBC implements EmployeeDao {
 
 
         return false;
+    }
+
+    @Override
+    public List<Employee> getEmployeeInformationById(int employee_id) {
+        List<Employee> employee = new ArrayList<>();
+
+        try {
+            Connection connection = conUtil.getConnectionThroughENV();
+
+            String sql = "SELECT * FROM employee WHERE employee_id =?";
+
+            PreparedStatement prepared = connection.prepareStatement(sql);
+            prepared.setInt(1, employee_id);
+
+            ResultSet results = prepared.executeQuery();
+
+            while (results.next()) {
+
+                employee.add(new Employee(results.getInt(1), results.getString(2), results.getString(3), results.getString(4),
+                        results.getString(5), results.getString(6), results.getString(7)));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employee;
+
     }
 
 

@@ -87,6 +87,14 @@ public class DriverConnection {
             updateEmployeeEmailHandler.result("You are trying to input a response that is outside the parameters.");
         });
 
+        app.get("/viewAllEmployeeInformationHandler", ec.viewAllEmployeeInformationHandler);
+
+
+        app.exception(EmployeeDoesNotExistException.class, (e, viewAllEmployeeInformationHandler) -> {
+            viewAllEmployeeInformationHandler.status(406);
+            viewAllEmployeeInformationHandler.result("You do not have a valid employee id");
+        });
+
 
         ManagerController mc = new ManagerController();
 

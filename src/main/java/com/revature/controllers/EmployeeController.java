@@ -146,4 +146,42 @@ public class EmployeeController {
 
     };
 
+    public Handler viewAllEmployeeInformationHandler = (ctx) -> {
+
+        if(AuthController.ses != null){
+
+            System.out.println(AuthController.ses.getAttribute("user_level"));
+            System.out.println(AuthController.ses.getAttribute("employee_id"));
+
+            int employeeId = (Integer)AuthController.ses.getAttribute("employee_id");
+
+            if(AuthController.ses.getAttribute("user_level") == null){
+                ctx.status(403);
+                ctx.result("You must be logged as an manager in order to perform this action.");
+                return;
+            }
+
+            if(!AuthController.ses.getAttribute("employee_id").equals(employeeId)){
+                ctx.status(403);
+                ctx.result("You do not have access to perform this action as an employee.");
+                return;
+            }
+
+        List<Employee> employee = eDao.getEmployeeInformationById(202);
+
+        Gson gson = new Gson();
+
+        String JSONEmployees = gson.toJson(employee);
+
+        ctx.result(JSONEmployees);
+
+        ctx.status(202);
+
+       }else{
+            ctx.result("You must be logged in as a manager in order to perform this action.");
+            ctx.status(401);
+        }
+    };
+
+
 }
