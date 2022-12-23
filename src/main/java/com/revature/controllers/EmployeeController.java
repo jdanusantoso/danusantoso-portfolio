@@ -183,5 +183,19 @@ public class EmployeeController {
         }
     };
 
+    public Handler getAllEmployeesHandler = (ctx) -> {
+
+        List<Employee> allEmployees = eDao.getAllEmployees();
+
+        Gson gson = new Gson();
+
+        String JSONEmployees = gson.toJson(allEmployees);
+
+        ctx.status(202);
+
+        ctx.result(JSONEmployees);
+
+    };
+
 
 }

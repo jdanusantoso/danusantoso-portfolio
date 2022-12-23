@@ -5,10 +5,13 @@ import com.revature.dao.EmployeeDaoJDBC;
 import com.revature.dao.ManagerDaoJDBC;
 import com.revature.dao.TicketDaoJDBC;
 import com.revature.exception.ManagerDoesNotExistException;
+import com.revature.models.Employee;
 import com.revature.models.Manager;
 import com.revature.service.ManagerService;
 import com.revature.service.TicketService;
 import io.javalin.http.Handler;
+
+import java.util.List;
 
 public class ManagerController {
 
@@ -46,6 +49,34 @@ public class ManagerController {
             ctx.status(406);
             ctx.result("You are trying to input a username that already exists. Please choose another.");
         }
+        }else{
+            ctx.result("You must be logged in as a manager in order to perform this action.");
+            ctx.status(401);
+        }
+    };
+
+    public Handler viewAllManagersHandler = (ctx) -> {
+
+        if(AuthController.ses != null){
+
+            System.out.println(AuthController.ses.getAttribute("mUser_level"));
+
+            if(AuthController.ses.getAttribute("mUser_level") == null){
+                ctx.status(403);
+                ctx.result("You must be logged as an manager in order to perform this action.");
+                return;
+            }
+
+        List<Manager> manager = mDao.getAllManagers();
+
+        Gson gson = new Gson();
+
+        String JSONManagers = gson.toJson(manager);
+
+        ctx.result(JSONManagers);
+
+        ctx.status(202);
+
         }else{
             ctx.result("You must be logged in as a manager in order to perform this action.");
             ctx.status(401);

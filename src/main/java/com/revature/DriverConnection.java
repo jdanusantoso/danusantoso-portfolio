@@ -71,6 +71,8 @@ public class DriverConnection {
             createNewEmployee.result("you are trying to input a username that already exists. Please choose another.");
         });
 
+        app.get("/getAllEmployee", ec.getAllEmployeesHandler);
+
         app.patch("/updateEmployeeLastName/{id}", ec.updateEmployeeLastNameHandler);
 
 
@@ -95,15 +97,16 @@ public class DriverConnection {
             viewAllEmployeeInformationHandler.result("You do not have a valid employee id");
         });
 
-
         ManagerController mc = new ManagerController();
 
         app.post("/createNewManager", mc.createNewManager);
 
-        app.exception(ManagerDoesNotExistException.class, (e, createNewManager) -> {
-            createNewManager.status(406);
-            createNewManager.result("The manager that is trying to login does not have an existing username and password.");
-        });
+//        app.exception(ManagerDoesNotExistException.class, (e, createNewManager) -> {
+//            createNewManager.status(406);
+//            createNewManager.result("The manager that is trying to login does not have an existing username and password.");
+//        });
+//
+//        app.get("/viewAllManagersHandler", mc.viewAllManagersHandler);
 
         TicketController tc = new TicketController();
 
