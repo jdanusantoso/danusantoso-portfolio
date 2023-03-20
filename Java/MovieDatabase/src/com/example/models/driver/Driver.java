@@ -212,7 +212,7 @@ public class Driver {
         while(!completed) {
 
 
-            System.out.println("Welcome to the Revature Movie Database. What are you wanting"
+            System.out.println("Welcome to the Revature Movie Spot Database. What are you wanting"
                     + "to do today?");
 
 
