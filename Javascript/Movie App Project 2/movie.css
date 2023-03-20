@@ -4,6 +4,7 @@
 
 :root{
     --primary-color: #22254b;
+    --bright-color: white;
     --secondary-color: #373b69;
 }
 
@@ -20,9 +21,17 @@ header{
     background: var(--secondary-color);
 }
 
+.app-name{
+    color: #ffd700;
+    position: absolute;
+    left: 30px;
+    top: -5px;
+}
+
 .search{
-    background-color: transparent;
-    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color) ;
+    border: 2px solid transparent;
+    /* border-color: none; */
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 1rem;
@@ -36,7 +45,8 @@ header{
 }
 
 .search::placeholder{
-    background-color: #7378c5;
+    color: #a4a8e3;
+    font-weight: bold;
 }
 
 main{
