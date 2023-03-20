@@ -1,11 +1,8 @@
-//Fetch all the elements
-
 const btnEl = document.querySelector(".btn")
 const inputEl = document.getElementById("input")
 const copyIconEl = document.querySelector(".fa-copy")
 const alertContainerEl = document.querySelector(".alert-container")
 
-//Event Listeners
 btnEl.addEventListener("click", () => {
     createUsername()
 
@@ -42,11 +39,8 @@ function createUsername(){
 
 
 function copyUsername() {
-    //Selecting the password
     inputEl.select()
-    //For mobile
     inputEl.setSelectionRange(0, 9999);
-    //Copy the password
     navigator.clipboard.writeText(inputEl.value);
     
 }
