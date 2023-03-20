@@ -27,11 +27,9 @@ header{
     border-radius: 50px;
     font-size: 1rem;
     color: #fff;
-    /*inherit from parent element*/
     font-family: inherit;
 }
 
-/*focus*/
 .search:focus{
     outline: 0;
     background-color: var(--primary-color);
@@ -113,8 +111,6 @@ main{
 .movie:hover .overview{
     transform: translateY(0)
 }  
-
-/*Tags*/
 
 #tags{
     width: 80%;
