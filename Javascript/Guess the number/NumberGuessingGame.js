@@ -1,14 +1,12 @@
-//Getting the element
-
 var enterButton = document.getElementById('enterButton');
 var againButton = document.getElementById('againButton');
 var output = document.getElementById('outputText');
 
-//Math Function
+
 
 var randomNumber = Math.ceil(Math.random()*100)
 
-//Check number
+
 function checkNumber(){
     var input = document.getElementById('userInput').value;
     if(input == randomNumber){
@@ -29,7 +27,6 @@ function checkNumber(){
 
 }
 
-//Event Listeners
 enterButton.addEventListener("click", checkNumber);
 againButton.addEventListener('click', function(){
     //Reload the page
