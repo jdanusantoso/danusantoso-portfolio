@@ -1,0 +1,41 @@
+
+‹
+java:S1192P"nDefine a constant instead of duplicating this literal "Please enter the movie title and genre again." 3 times.(öµüã8”û–†ğ0
+s
+java:S11927"QDefine a constant instead of duplicating this literal " has been found." 3 times.(ã¤âŒıÿÿÿÿ8–û–†ğ0
+ 
+java:S11929"‚Define a constant instead of duplicating this literal "The movie you are looking for does not exist in the database yet." 3 times.(•ßì˜8–û–†ğ0
+
+java:S1319	"kThe type of "moviesArray" should be an interface such as "List" rather than the implementation "ArrayList".(’‡ŠÑùÿÿÿÿ8˜û–†ğ0
+ˆ
+java:S1319"kThe type of "moviesArray" should be an interface such as "List" rather than the implementation "ArrayList".(üºŸ8ËóÄ†ğ0
+y
+java:S1104	"WMake moviesArray a static final constant or non-public and provide accessors if needed.(’‡ŠÑùÿÿÿÿ8šû–†ğ0
+S
+java:S1444	"1Make this "public static moviesArray" field final(’‡ŠÑùÿÿÿÿ8šû–†ğ0
+J
+java:S3010"(Remove this assignment of "moviesArray".(ƒûŠµÿÿÿÿÿ8Æû–†ğ0
+H
+java:S2386"&Make member "moviesArray" "protected".(ƒûŠµÿÿÿÿÿ8âóÄ†ğ0
+T	java:S106"9Replace this use of System.out or System.err by a logger.(‘¹8Ìû–†ğ0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(£ê‹‘8Îû–†ğ0
+Z	java:S106""9Replace this use of System.out or System.err by a logger.(Ò„ò¯ıÿÿÿÿ8Ñû–†ğ0
+Z	java:S106%"9Replace this use of System.out or System.err by a logger.(åäí½ùÿÿÿÿ8Óû–†ğ0
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(ë‡ñ8Ôû–†ğ0
+Z	java:S106-"9Replace this use of System.out or System.err by a logger.(ÍõÔÁùÿÿÿÿ8Õû–†ğ0
+Z	java:S1067"9Replace this use of System.out or System.err by a logger.(ã¤âŒıÿÿÿÿ8Ùû–†ğ0
+U	java:S1069"9Replace this use of System.out or System.err by a logger.(•ßì˜8Úû–†ğ0
+Z	java:S106="9Replace this use of System.out or System.err by a logger.(ïÇÆŒıÿÿÿÿ8Üû–†ğ0
+U	java:S106J"9Replace this use of System.out or System.err by a logger.(ûÜ ª8ßû–†ğ0
+U	java:S106L"9Replace this use of System.out or System.err by a logger.(•ßì˜8àû–†ğ0
+U	java:S106P"9Replace this use of System.out or System.err by a logger.(öµüã8áû–†ğ0
+Z	java:S106Y"9Replace this use of System.out or System.err by a logger.(™«õ¶úÿÿÿÿ8äû–†ğ0
+U	java:S106["9Replace this use of System.out or System.err by a logger.(•ßì˜8åû–†ğ0
+U	java:S106_"9Replace this use of System.out or System.err by a logger.(öµüã8æû–†ğ0
+Z	java:S106i"9Replace this use of System.out or System.err by a logger.(Á–¾ùÿÿÿÿ8èû–†ğ0
+Z	java:S106l"9Replace this use of System.out or System.err by a logger.(øçµùıÿÿÿÿ8êû–†ğ0
+U	java:S106p"9Replace this use of System.out or System.err by a logger.(öµüã8ëû–†ğ0
+U	java:S106z"9Replace this use of System.out or System.err by a logger.(ÃÙÊç8îû–†ğ0
+T	java:S106{"9Replace this use of System.out or System.err by a logger.(½³•8ïû–†ğ0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Ò“×8ñû–†ğ0
+V	java:S106ƒ"9Replace this use of System.out or System.err by a logger.(ÉØÚ®8òû–†ğ0
