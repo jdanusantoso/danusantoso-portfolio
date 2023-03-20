@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body{
+    font-family: 'Redressed', cursive;
+    height: 100vh;
+    font-size: 22px;
+    position: relative;
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /*Moving the x and y*/
+    transform: translate(-50%, -50%);
+    width: 450px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgb(0 0 0 20%);
+}
+
+h1{
+    background-color: #cef5e4;
+    padding: 10px 0;
+    font-size: 28px;
+    border-radius: 18px;
+}
+
+p{
+    color: #7e7e7e;
+}
+
+.control{
+    margin: 25px 0;
+}
+
+input{
+    border: none;
+    outline: none;
+    text-align: center;
+    border-bottom: 1px solid #16a465;
+    color: #16a465;
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+select{
+    border: none;
+    outline: none;
+    /*defines the top left radius */
+    border: 1px solid #16a465;
+    color: #7e7e7e;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 11px 34px;
+    border-radius: 18px;
+    width: 75%;
+}
+
+button#calculate{
+    color: white;
+    background:  #16a465;
+    border: 1px solid transparent;
+    font-size: 17px;
+    border-radius: 25px;
+    padding: 14px 29px;
+    margin: 25px;
+    transition: all 0.3s ease;
+}
+
+button#calculate:hover{
+    color: #16a465;
+    background-color:  #16a465;
+    background: white;
+
+}
+
+.totalTip{
+    background: #cef5e4;
+    border-radius: 18px;
+    padding: 25px 0 35px;
+}
+
+.ptip{
+    font-size: 38px;
+    color: #009855;
+    margin-top: 10px;
+}

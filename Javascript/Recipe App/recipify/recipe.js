@@ -36,7 +36,7 @@ function generateHTML(results){
         <div class="item">
             <img src="${result.recipe.image}" alt="">
                 <div class="flex-container">
-                <h1 class="${result.recipe.label}">This is a recipe</h1>
+                <h1 class="${result.recipe.label}">Recipe:</h1>
                 <a class="view-button" href="${result.recipe.url}" target="">View Recipe</a>
                 </div>
             <p class="item-data">Calories: ${result.recipe.calories.toFixed(2)}</p>
