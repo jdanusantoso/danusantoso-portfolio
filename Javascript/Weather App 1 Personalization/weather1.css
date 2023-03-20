@@ -80,7 +80,7 @@ h1.temp{
     
 }
 
-/*Weather Loading shows loading when loading*/
+
 .weather.loading {
     visibility: hidden;
     max-height: 20px;
