@@ -45,7 +45,6 @@ section{
   form{
     width: 90%;
     max-width: 400px;
-    /*center horizontally*/
     margin: 20px auto;
     background-color: rgb(223, 223, 223);
     border-radius: 4px;
@@ -125,7 +124,6 @@ section{
     letter-spacing: 0.05rem;
     line-height: 2rem;
   }
-  /*Initial Container*/
 
   .container.initial .brand{
     font-size: 7rem;
@@ -139,8 +137,6 @@ section{
     padding: 30px;
     font-size: 3rem;
   }
-
-  /*Other Media*/
 
   @media (max-width: 760px){
     .search-result{

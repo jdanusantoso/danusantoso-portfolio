@@ -1,5 +1,3 @@
-//variables
-
 const searchForm = document.querySelector('form');
 const searchResultDiv = document.querySelector('.search-result');
 const container = document.querySelector('.container');
@@ -9,9 +7,7 @@ const APP_KEY ='dafe0155307ee6cb2c84c213d0f9c789';
 
 
 searchForm.addEventListener('submit', (e) => {
-    //Prevents default behavior
     e.preventDefault();
-    //searches for the query value that is stored there
     searchQuery =e.target.querySelector('input').value;
     fetchAPI();
     
@@ -27,7 +23,6 @@ async function fetchAPI (){
 }
 
 function generateHTML(results){
-    //Remove initial class when loading
     container.classList.remove('initial');
     let generatedHTML = '';
     results.map(result => {
