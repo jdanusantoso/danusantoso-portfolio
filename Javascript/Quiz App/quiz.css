@@ -29,6 +29,15 @@ body.wrong {
   --hue: var(--hue-wrong);
 }
 
+.name{
+  position: absolute;
+  top: 230px;
+  left: 530px;
+  text-align: center;
+  padding-left: 10px;
+  color: white;
+}
+
 .container {
   width: 800px;
   max-width: 80%;

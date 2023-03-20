@@ -23,9 +23,8 @@ function startGame(){
 }
 
 function setNextQuestion() {
-    //Calling the function to reset the state for the next question
     resetState()
-    //Show the current shuffled question at the current question index
+
     showQuestion(shuffledQuestions[currentQuestionIndex])
     
     
@@ -36,38 +35,34 @@ function showQuestion(question){
     question.answers.forEach(answer => {
         const button = document.createElement('button')
         button.innerText = answer.text
-        //Add the button class
+        
         button.classList.add('btn')
-        //If correct set to correct
+        
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
         button.addEventListener('click', selectAnswer)
-        //Appending the buttons to the answer button
+        
         answerButtonsElement.appendChild(button)
     })
 }
 
 function resetState() {
-    //Hide next button
+    
     clearStatusClass(document.body)
     nextButton.classList.add('hide')
-    //If there are four blank answers
+    
     while (answerButtonsElement.firstChild){
-        //Remove them
+        
         answerButtonsElement.removeChild
         (answerButtonsElement.firstChild)
     }
 }
 
 function selectAnswer(e) {
-    //Get the button clicked
     const selectedButton = e.target
-    //Check if its correct
     const correct =selectedButton.dataset.correct
-    //Taking the document body and take in if it should right or wrong
     setStatusClass(document.body, correct)
-    //Create an array so that we can loop through it
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
@@ -96,35 +91,48 @@ function clearStatusClass(element) {
 
 const questions = [
     {
-      question: 'What is 2 + 2?',
+      question: 'What Vietnamese food came from Da Nang?',
       answers: [
-        { text: '4', correct: true },
-        { text: '22', correct: false }
+        { text: 'Bun Bo Hue', correct: false },
+        { text: 'Pho', correct: false },
+        { text: 'Banh Trang Nưong', correct: false },
+        { text: 'Mi Quang', correct: true }
       ]
     },
     {
-      question: 'Who is the best YouTuber?',
+      question: 'What Vietnamese food came from Hue?',
       answers: [
-        { text: 'Web Dev Simplified', correct: true },
-        { text: 'Traversy Media', correct: true },
-        { text: 'Dev Ed', correct: true },
-        { text: 'Fun Fun Function', correct: true }
+        { text: 'Bun Bo Hue', correct: true },
+        { text: 'Pho', correct: false },
+        { text: 'Banh Trang Nưong', correct: false },
+        { text: 'Mi Quang', correct: false }
       ]
     },
     {
-      question: 'Is web development fun?',
+      question: 'What Vietnamese food came from Da Lat?',
       answers: [
-        { text: 'Kinda', correct: false },
-        { text: 'YES!!!', correct: true },
-        { text: 'Um no', correct: false },
-        { text: 'IDK', correct: false }
+        { text: 'Bun Bo Hue', correct: false },
+        { text: 'Pho', correct: false },
+        { text: 'Banh Trang Nuong', correct: true },
+        { text: 'Mi Quang', correct: false }
       ]
     },
     {
-      question: 'What is 4 * 2?',
+      question: 'What Vietnamese food came from Hanoi?',
       answers: [
-        { text: '6', correct: false },
-        { text: '8', correct: true }
+        { text: 'Bun Bo Hue', correct: false },
+        { text: 'Pho', correct: true },
+        { text: 'Banh Trang Nuong', correct: false },
+        { text: 'Mi Quang', correct: false }
       ]
-    }
+    },
+    {
+      question: 'What Vietnamese food came from Ho Chi Minh City?',
+      answers: [
+        { text: 'Bun Bo Hue', correct: false },
+        { text: 'Banh Mi', correct: true },
+        { text: 'Banh Trang Nuong', correct: false },
+        { text: 'Mi Quang', correct: false }
+      ]
+    },
   ]
