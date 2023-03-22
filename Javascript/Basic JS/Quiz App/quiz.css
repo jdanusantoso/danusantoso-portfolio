@@ -30,17 +30,16 @@ body.wrong {
 }
 
 .name{
-  position: absolute;
-  top: 230px;
-  left: 530px;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding-left: 10px;
+  max-width: 100%;
   color: white;
 }
 
 .container {
   width: 800px;
-  max-width: 80%;
+  max-width: 100%;
   background-color: white;
   border-radius: 5px;
   padding: 10px;

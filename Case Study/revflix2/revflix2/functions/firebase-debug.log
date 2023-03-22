@@ -164,3 +164,204 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [debug] [2023-03-19T03:27:35.578Z] [worker-us-central1-api-f9aedcb4-ffc8-4166-919b-a35f025391b8]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-f9aedcb4-ffc8-4166-919b-a35f025391b8]: IDLE"}}
 [debug] [2023-03-19T03:27:35.578Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
 [debug] [2023-03-19T03:35:31.297Z] [worker-us-central1-api-a7972bb1-3313-4c3a-aaeb-53fbf2173232]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-a7972bb1-3313-4c3a-aaeb-53fbf2173232]: exited"}}
+[debug] [2023-03-22T01:58:52.744Z] ----------------------------------------------------------------------
+[debug] [2023-03-22T01:58:52.746Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jef Danusantoso\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2023-03-22T01:58:52.746Z] CLI Version:   11.24.1
+[debug] [2023-03-22T01:58:52.746Z] Platform:      win32
+[debug] [2023-03-22T01:58:52.746Z] Node Version:  v19.7.0
+[debug] [2023-03-22T01:58:52.746Z] Time:          Tue Mar 21 2023 20:58:52 GMT-0500 (Central Daylight Time)
+[debug] [2023-03-22T01:58:52.746Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-22T01:58:52.871Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-22T01:58:52.872Z] > authorizing via signed-in user (h324rongwarrior@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting"}}
+[debug] [2023-03-22T01:58:52.881Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-03-22T01:58:52.882Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-03-22T01:58:52.882Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project revflix2. This may result in unexpected behavior. 
+[debug] [2023-03-22T01:58:52.890Z] [hub] writing locator at C:\Users\JEFDAN~1\AppData\Local\Temp\hub-revflix2.json
+[debug] [2023-03-22T01:58:52.910Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-03-22T01:58:52.916Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-03-22T01:58:52.917Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage\u001b[22m"}}
+[debug] [2023-03-22T01:58:52.924Z] defaultcredentials: writing to file C:\Users\Jef Danusantoso\AppData\Roaming\firebase\h324rongwarrior_gmail_com_application_default_credentials.json
+[debug] [2023-03-22T01:58:52.933Z] Setting GAC to C:\Users\Jef Danusantoso\AppData\Roaming\firebase\h324rongwarrior_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Jef Danusantoso\\AppData\\Roaming\\firebase\\h324rongwarrior_gmail_com_application_default_credentials.json"}}
+[debug] [2023-03-22T01:58:52.934Z] > refreshing access token with scopes: []
+[debug] [2023-03-22T01:58:52.936Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-03-22T01:58:52.936Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-22T01:59:04.255Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-03-22T01:59:04.255Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-22T01:59:04.264Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/revflix2/adminSdkConfig [none]
+[debug] [2023-03-22T01:59:04.768Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/revflix2/adminSdkConfig 200
+[debug] [2023-03-22T01:59:04.768Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/revflix2/adminSdkConfig {"projectId":"revflix2","databaseURL":"https://revflix2-default-rtdb.firebaseio.com","storageBucket":"revflix2.appspot.com"}
+[debug] [2023-03-22T01:59:04.785Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/revflix2/sites 
+[debug] [2023-03-22T01:59:05.400Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/revflix2/sites 200
+[debug] [2023-03-22T01:59:05.401Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/revflix2/sites {"sites":[{"name":"projects/revflix2/sites/revflix2","defaultUrl":"https://revflix2.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-03-22T01:59:05.401Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/revflix2/webApps/-/config [none]
+[debug] [2023-03-22T01:59:05.741Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/revflix2/webApps/-/config 200
+[debug] [2023-03-22T01:59:05.741Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/revflix2/webApps/-/config {"projectId":"revflix2","appId":"1:803348210934:web:3f308d0fe311c6db17f8d7","databaseURL":"https://revflix2-default-rtdb.firebaseio.com","storageBucket":"revflix2.appspot.com","apiKey":"AIzaSyDnW8n5rMtyaqGEeRYgDP7ypxLPC-2l_mw","authDomain":"revflix2.firebaseapp.com","messagingSenderId":"803348210934","measurementId":"G-JEQQZ742JC"}
+[debug] [2023-03-22T01:59:05.751Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/revflix2 [none]
+[debug] [2023-03-22T01:59:05.960Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/revflix2 200
+[debug] [2023-03-22T01:59:05.960Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/revflix2 {"projectId":"revflix2","projectNumber":"803348210934","displayName":"revflix2","name":"projects/revflix2","resources":{"hostingSite":"revflix2","realtimeDatabaseInstance":"revflix2-default-rtdb"},"state":"ACTIVE","etag":"1_781cef11-57ef-43fe-b6d3-251318fd96bf"}
+[debug] [2023-03-22T01:59:05.962Z] Specified "public" directory "build" does not exist; Deploy to Hosting site "revflix2" may fail or be empty.
+[info] i  hosting[revflix2]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting[revflix2]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2023-03-22T01:59:06.010Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-03-22T01:59:06.011Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-03-22T01:59:06.011Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\Jef Danusantoso\\.cache\\firebase\\emulators\\ui-v1.11.4\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\Jef Danusantoso\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.4\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-03-22T01:59:06.137Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-03-22T01:59:06.137Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\Jef Danusantoso\Desktop\Portofolio Projects\Case Study\revflix2\revflix2\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\" for Cloud Functions..."}}
+[debug] [2023-03-22T01:59:06.298Z] Validating nodejs source
+[debug] [2023-03-22T01:59:09.388Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.2.0",
+    "stripe": "^11.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.0.0"
+  },
+  "private": true
+}
+[debug] [2023-03-22T01:59:09.388Z] Building nodejs source
+[debug] [2023-03-22T01:59:09.389Z] Failed to find version of module node: reached end of search path C:\Users\Jef Danusantoso\Desktop\Portofolio Projects\Case Study\revflix2\revflix2\functions\node_modules
+[warn] !  functions: Your requested "node" version "16" doesn't match your global version "19". Using node@19 from host. 
+[debug] [2023-03-22T01:59:09.391Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-03-22T01:59:09.402Z] Found firebase-functions binary at 'C:\Users\Jef Danusantoso\Desktop\Portofolio Projects\Case Study\revflix2\revflix2\functions\node_modules\.bin\firebase-functions'
+[debug] [2023-03-22T01:59:09.811Z] Serving at port 8272
+
+[debug] [2023-03-22T01:59:10.382Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-03-22T01:59:10.388Z] shutdown requested via /__/quitquitquit
+
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[info] +  functions[us-central1-api]: http function initialized (http://127.0.0.1:5001/revflix2/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/revflix2/us-central1/api)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Hosting   │ 127.0.0.1:5000 │ n/a                             │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-03-22T02:00:04.454Z] [work-queue] {"queuedWork":["/revflix2/us-central1/api-2023-03-22T02:00:04.453Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-03-22T02:00:04.454Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/revflix2/us-central1/api-2023-03-22T02:00:04.453Z"],"workRunningCount":1}
+[debug] [2023-03-22T02:00:04.455Z] Accepted request GET /revflix2/us-central1/api --> us-central1-api
+[debug] [2023-03-22T02:00:04.459Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-03-22T02:00:04.460Z] [functions] Got req.url=/revflix2/us-central1/api, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/revflix2/us-central1/api, mapping to path=/"}}
+[debug] [2023-03-22T02:00:04.562Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2023-03-22T02:00:04.564Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2023-03-22T02:00:06.179Z] [runtime-status] [10600] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.5.0","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.5.0\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:06.181Z] [runtime-status] [10600] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:06.181Z] [runtime-status] [10600] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2023-03-22T02:00:06.182Z] [runtime-status] [10600] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:06.528Z] [runtime-status] [10600] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Checked functions.config() {\"config\":{}}"}}
+[debug] [2023-03-22T02:00:06.529Z] [runtime-status] [10600] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}}"}}
+[debug] [2023-03-22T02:00:06.529Z] [runtime-status] [10600] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:06.531Z] [runtime-status] [10600] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.5.0","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.5.0\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:06.536Z] [runtime-status] [10600] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:06.537Z] [runtime-status] [10600] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.5.0","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.5.0\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2023-03-22T02:00:06.863Z] [runtime-status] [10600] Functions runtime initialized. {"cwd":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions","node_version":"19.7.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\",\"node_version\":\"19.7.0\"}"}}
+[debug] [2023-03-22T02:00:06.863Z] [runtime-status] [10600] Listening to port: \\?\pipe\fire_emu_f50125d7783022ae {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10600] Listening to port: \\\\?\\pipe\\fire_emu_f50125d7783022ae"}}
+[debug] [2023-03-22T02:00:06.964Z] [worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: IDLE"}}
+[debug] [2023-03-22T02:00:06.964Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2023-03-22T02:00:06.965Z] [worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: BUSY"}}
+[info] i  functions: Finished "us-central1-api" in 9.0555ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 9.0555ms"}}
+[debug] [2023-03-22T02:00:06.975Z] [worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: IDLE"}}
+[debug] [2023-03-22T02:00:06.976Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-03-22T02:00:07.119Z] Functions emulator received unknown request at path /favicon.ico
+[debug] [2023-03-22T02:00:22.417Z] [work-queue] {"queuedWork":["/revflix2/us-central1/api/payments/create-2023-03-22T02:00:22.417Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-03-22T02:00:22.417Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/revflix2/us-central1/api/payments/create-2023-03-22T02:00:22.417Z"],"workRunningCount":1}
+[debug] [2023-03-22T02:00:22.418Z] Accepted request POST /revflix2/us-central1/api/payments/create?total=3997 --> us-central1-api
+[debug] [2023-03-22T02:00:22.421Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-03-22T02:00:22.421Z] [functions] Got req.url=/revflix2/us-central1/api/payments/create?total=3997, mapping to path=/payments/create?total=3997 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/revflix2/us-central1/api/payments/create?total=3997, mapping to path=/payments/create?total=3997"}}
+[debug] [2023-03-22T02:00:22.421Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2023-03-22T02:00:22.422Z] [worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: BUSY"}}
+[debug] [2023-03-22T02:00:22.423Z] [work-queue] {"queuedWork":["/revflix2/us-central1/api/payments/create-2023-03-22T02:00:22.423Z"],"queueLength":1,"runningWork":["/revflix2/us-central1/api/payments/create-2023-03-22T02:00:22.417Z"],"workRunningCount":1}
+[debug] [2023-03-22T02:00:22.424Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/revflix2/us-central1/api/payments/create-2023-03-22T02:00:22.417Z","/revflix2/us-central1/api/payments/create-2023-03-22T02:00:22.423Z"],"workRunningCount":2}
+[debug] [2023-03-22T02:00:22.424Z] Accepted request POST /revflix2/us-central1/api/payments/create?total=3997 --> us-central1-api
+[debug] [2023-03-22T02:00:22.427Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-03-22T02:00:22.427Z] [functions] Got req.url=/revflix2/us-central1/api/payments/create?total=3997, mapping to path=/payments/create?total=3997 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/revflix2/us-central1/api/payments/create?total=3997, mapping to path=/payments/create?total=3997"}}
+[debug] [2023-03-22T02:00:22.440Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2023-03-22T02:00:22.441Z] [worker-pool] Adding worker with key us-central1-api, total=2 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=2"}}
+[info] >  Payment Request Recieved BOOM!!! for this amount >>>  3997 {"user":"Payment Request Recieved BOOM!!! for this amount >>>  3997","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"\u001b[90m> \u001b[39m Payment Request Recieved BOOM!!! for this amount >>>  3997"}}
+[info] i  functions: Finished "us-central1-api" in 667.8607ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 667.8607ms"}}
+[debug] [2023-03-22T02:00:23.091Z] [worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: IDLE"}}
+[debug] [2023-03-22T02:00:23.091Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/revflix2/us-central1/api/payments/create-2023-03-22T02:00:22.423Z"],"workRunningCount":1}
+[debug] [2023-03-22T02:00:23.500Z] [runtime-status] [9764] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.5.0","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.5.0\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:23.502Z] [runtime-status] [9764] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:23.502Z] [runtime-status] [9764] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2023-03-22T02:00:23.504Z] [runtime-status] [9764] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:23.694Z] [runtime-status] [9764] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Checked functions.config() {\"config\":{}}"}}
+[debug] [2023-03-22T02:00:23.694Z] [runtime-status] [9764] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}}"}}
+[debug] [2023-03-22T02:00:23.695Z] [runtime-status] [9764] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:23.696Z] [runtime-status] [9764] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.5.0","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.5.0\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:23.698Z] [runtime-status] [9764] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.2.1","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.2.1\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2023-03-22T02:00:23.699Z] [runtime-status] [9764] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.5.0","resolution":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.5.0\",\"resolution\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2023-03-22T02:00:23.833Z] [runtime-status] [9764] Functions runtime initialized. {"cwd":"C:\\Users\\Jef Danusantoso\\Desktop\\Portofolio Projects\\Case Study\\revflix2\\revflix2\\functions","node_version":"19.7.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Jef Danusantoso\\\\Desktop\\\\Portofolio Projects\\\\Case Study\\\\revflix2\\\\revflix2\\\\functions\",\"node_version\":\"19.7.0\"}"}}
+[debug] [2023-03-22T02:00:23.834Z] [runtime-status] [9764] Listening to port: \\?\pipe\fire_emu_2e9838eeb2ad7970 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9764] Listening to port: \\\\?\\pipe\\fire_emu_2e9838eeb2ad7970"}}
+[debug] [2023-03-22T02:00:23.867Z] [worker-us-central1-api-7df79db2-d3af-4995-b81a-c575151f3a3b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-7df79db2-d3af-4995-b81a-c575151f3a3b]: IDLE"}}
+[debug] [2023-03-22T02:00:23.867Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2023-03-22T02:00:23.868Z] [worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: BUSY"}}
+[info] >  Payment Request Recieved BOOM!!! for this amount >>>  3997 {"user":"Payment Request Recieved BOOM!!! for this amount >>>  3997","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"\u001b[90m> \u001b[39m Payment Request Recieved BOOM!!! for this amount >>>  3997"}}
+[info] i  functions: Finished "us-central1-api" in 341.8788ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 341.8788ms"}}
+[debug] [2023-03-22T02:00:24.211Z] [worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-a705a101-8a29-43c3-b99c-10e4b5c48669]: IDLE"}}
+[debug] [2023-03-22T02:00:24.211Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-03-22T02:01:21.009Z] ----------------------------------------------------------------------
+[debug] [2023-03-22T02:01:21.012Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jef Danusantoso\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-03-22T02:01:21.012Z] CLI Version:   11.24.1
+[debug] [2023-03-22T02:01:21.012Z] Platform:      win32
+[debug] [2023-03-22T02:01:21.012Z] Node Version:  v19.7.0
+[debug] [2023-03-22T02:01:21.013Z] Time:          Tue Mar 21 2023 21:01:21 GMT-0500 (Central Daylight Time)
+[debug] [2023-03-22T02:01:21.013Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-22T02:01:21.070Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-22T02:01:21.070Z] > authorizing via signed-in user (h324rongwarrior@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Jef Danusantoso\Desktop\Portofolio Projects\Case Study\revflix2\revflix2
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
