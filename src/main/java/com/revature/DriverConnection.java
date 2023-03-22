@@ -101,12 +101,12 @@ public class DriverConnection {
 
         app.post("/createNewManager", mc.createNewManager);
 
-//        app.exception(ManagerDoesNotExistException.class, (e, createNewManager) -> {
-//            createNewManager.status(406);
-//            createNewManager.result("The manager that is trying to login does not have an existing username and password.");
-//        });
-//
-//        app.get("/viewAllManagersHandler", mc.viewAllManagersHandler);
+        app.exception(ManagerDoesNotExistException.class, (e, createNewManager) -> {
+            createNewManager.status(406);
+            createNewManager.result("The manager that is trying to login does not have an existing username and password.");
+        });
+
+        app.get("/viewAllManagersHandler", mc.viewAllManagersHandler);
 
         TicketController tc = new TicketController();
 
