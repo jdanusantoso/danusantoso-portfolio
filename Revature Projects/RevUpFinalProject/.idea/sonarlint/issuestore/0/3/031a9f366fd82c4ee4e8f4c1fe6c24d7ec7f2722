@@ -23,7 +23,7 @@ o	java:S135Ô"YReduce the total number of break and continue statements in thi
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ºÍà ùÿÿÿÿ
 h
 java:S3776"RRefactor this method to reduce its Cognitive Complexity from 57 to the 15 allowed.(Çµí‘
-T	java:S106×"9Replace this use of System.out or System.err by a logger.(ì¹¥”ùÿÿÿÿ
+T	java:S106×"9Replace this use of System.out or System.err by a logger.(ý®±ƒùÿÿÿÿ
 O	java:S106Û"9Replace this use of System.out or System.err by a logger.(˜°ÙÚ
 I
 java:S6126Û"2Replace this String concatenation with Text block.(˜°ÙÚ
