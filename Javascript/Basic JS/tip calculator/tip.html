@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Tip Calculator</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <!--font awesome-->
+    <script src="https://kit.fontawesome.com/f3f569698b.js" crossorigin="anonymous"></script>
+    <!--custom css-->
+    <link rel="stylesheet" href="tip.css">
+</head>
+<body>
+    <!--Container-->
+    <div class="container">
+    <h1>Online Tip Calculator</h1>
+    <form action="">
+        <div class="control">
+            <p>Enter total bill</p>
+            <p class="input">
+                $
+                <input type="number" name="" id="totalBill" placeholder="0.00">
+            </p>
+        </div>
+        <div class="control">
+            <p>Choose your tip</p>
+            <select name="" id="tipPercent">
+                <option disable selected value="0">Select from here</option>
+                <option value="0.05">5%</option>
+                <option value="0.1">10%</option>
+                <option value="0.15">15%</option>
+                <option value="0.2">20%</option>
+                <option value="0.3">30%</option>
+            </select>
+        </div>
+    </form>
+
+    <p>Split the bill into</p>
+    <input type="number" name="" id="split"> <br>
+    <button id="calculate">Calculate</button>
+    <div class="totalTip">
+        <p>Total per Person</p>
+        <p class="tip">$ <span id="tip"></span></p>
+    </div>
+    </div>
+</body>
+
+<script src="tip.js"></script>
+</html>

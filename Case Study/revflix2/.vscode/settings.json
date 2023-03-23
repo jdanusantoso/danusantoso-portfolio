@@ -1,0 +1,12 @@
+{
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-18",
+            "path": "/usr/lib/jvm/java-18-openjdk-18.0.1.1.2-1.rolling.fc36.x86_64",
+            "sources" : "/usr/lib/jvm/java-18-openjdk-18.0.1.1.2-1.rolling.fc36.x86_64/lib/src.zip",
+            "javadoc" : "/usr/share/javadoc/java-18-openjdk-18.0.1.1.2-1.rolling.fc36.x86_64/api",
+            "default":  true
+        }
+    
+    ]
+}
