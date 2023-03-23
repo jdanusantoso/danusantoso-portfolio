@@ -1,17 +1,0 @@
-
-
-java:S1319"kThe type of "moviesArray" should be an interface such as "List" rather than the implementation "ArrayList".(Ïúˆ
-
-java:S1319
-"kThe type of "moviesArray" should be an interface such as "List" rather than the implementation "ArrayList".(¶é¿
-†
-java:S1319"kThe type of "moviesArray" should be an interface such as "List" rather than the implementation "ArrayList".(Í„Û¤şÿÿÿÿ
-†
-java:S1319"kThe type of "moviesArray" should be an interface such as "List" rather than the implementation "ArrayList".(ÍØÄûÿÿÿÿ
-†
-java:S1319"kThe type of "moviesArray" should be an interface such as "List" rather than the implementation "ArrayList".(ô×Êûÿÿÿÿ
-
-java:S1319"kThe type of "moviesArray" should be an interface such as "List" rather than the implementation "ArrayList".(µ¸¸¼
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¶üõ¡
-Q
-java:S1610";Convert the abstract class "MovieGenres" into an interface.(¸à—Ù
