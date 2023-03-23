@@ -212,7 +212,7 @@ boolean completed = false;
 		while(!completed) {
 			
 			
-			System.out.println("Welcome to our movie database site. What movie are you wanting"
+			System.out.println("Welcome to the revup movie database site. What movie are you wanting"
 							 + "to do today?");
 			
 			
